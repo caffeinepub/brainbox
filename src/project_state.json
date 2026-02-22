@@ -1,0 +1,283 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "BrainBox: A comprehensive gamified educational app for students Grade 1-12 with Energy Meter system, personalized learning paths across multiple educational boards (CBSE, ICSE, IB, IGCSE, State Board), adaptive quizzes, mini-games, achievement tracking, parental controls, and Olympiad preparation mode",
+  "architectural_notes": [
+    "Full-stack app with secure authentication and child-safe data handling",
+    "AI-powered adaptive learning engine for personalized topic recommendations",
+    "Multi-board curriculum support (CBSE, ICSE, IB, IGCSE, State Board) with dynamic subject generation",
+    "Grade-appropriate content system (Grades 1-5, 6-8, 9-10, 11-12 with stream selection)",
+    "Gamification engine with energy points, streaks, combos, and unlock systems",
+    "Offline-first architecture with sync capabilities for limited internet access",
+    "Privacy-first design with parental controls and no external ads or unsafe links",
+    "Responsive UI with brain/lightning theme, smooth animations, and accessibility features",
+    "Spaced repetition algorithm for intelligent revision scheduling",
+    "Analytics engine for tracking performance, weak topics, and generating insights"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Vibrant animated brain with lightning bolts for welcome screen hero image, modern gradient style with energetic feel (brainbox-hero.dim_1200x600.png)\n- Energy meter icon showing charging battery with brain symbol, glowing effect suitable for UI (energy-icon.dim_128x128.png)\n- Achievement badge for Brain Starter milestone, colorful trophy design (badge-brain-starter.dim_256x256.png)\n- Achievement badge for Energy Master milestone, electric theme (badge-energy-master.dim_256x256.png)\n- Achievement badge for 7-Day Streak Hero milestone, fire/flame theme (badge-streak-hero.dim_256x256.png)\n- Achievement badge for Math Wizard milestone, mathematical symbols theme (badge-math-wizard.dim_256x256.png)\n- Achievement badge for Science Champ milestone, science lab theme (badge-science-champ.dim_256x256.png)\n- Mini-game icon for Word Rush game, letters and speed theme (minigame-word-rush.dim_256x256.png)\n- Mini-game icon for Math Blaster game, numbers and explosion theme (minigame-math-blaster.dim_256x256.png)\n- Mini-game icon for Science Snap game, beaker and molecule theme (minigame-science-snap.dim_256x256.png)\n- Mini-game icon for Memory Grid game, grid pattern with brain symbol (minigame-memory-grid.dim_256x256.png)\n- Mini-game icon for Quiz Battle Mode game, competitive trophy theme (minigame-quiz-battle.dim_256x256.png)\n- Background pattern for dashboard with subtle brain and lightning motifs, light theme version (dashboard-bg-light.dim_1920x1080.png)\n- Background pattern for dashboard with subtle brain and lightning motifs, dark theme version (dashboard-bg-dark.dim_1920x1080.png)\n- Olympiad preparation banner image with trophy and academic symbols (olympiad-banner.dim_800x200.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-animated-welcome-screen-displaying-welcome-to-brainbox-with-tagline-charge-your-brain-unlock-your-game-and-a-bold-let-s-start-button-with-smooth-transitions",
+      "title": "Create animated welcome screen displaying 'Welcome to BrainBox! 🧠⚡' with tagline 'Charge Your Brain. Unlock Your Game.' and a bold 'Let's Start' button with smooth transitions",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-onboarding-flow-asking-users-to-select-grade-grade-1-12-educational-system-cbse-icse-state-board-ib-igcse-other-and-for-grades-11-12-ask-stream-selection-science-commerce-humanities",
+      "title": "Implement onboarding flow asking users to select grade (Grade 1-12), educational system (CBSE, ICSE, State Board, IB, IGCSE, Other), and for Grades 11-12 ask stream selection (Science, Commerce, Humanities)",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-automatically-generate-appropriate-subject-list-based-on-selected-grade-and-stream-grades-1-5-english-mathematics-evs-general-knowledge-computer-basics-grades-6-8-english-mathematics-science-social-studies-computer-science-grades-9-10-english-mathematics-physics-chemistry-biology-social-science-computer-science-grades-11-12-science-physics-chemistry-biology-mathematics-computer-science-grades-11-12-commerce-accounts-business-studies-economics-mathematics-grades-11-12-humanities-history-political-science-geography-etc",
+      "title": "Automatically generate appropriate subject list based on selected grade and stream: Grades 1-5 (English, Mathematics, EVS, General Knowledge, Computer Basics), Grades 6-8 (English, Mathematics, Science, Social Studies, Computer Science), Grades 9-10 (English, Mathematics, Physics, Chemistry, Biology, Social Science, Computer Science), Grades 11-12 Science (Physics, Chemistry, Biology, Mathematics, Computer Science), Grades 11-12 Commerce (Accounts, Business Studies, Economics, Mathematics), Grades 11-12 Humanities (History, Political Science, Geography, etc.)",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-energy-meter-gamification-system-where-students-earn-5-energy-per-correct-answer-20-energy-per-completed-quiz-set-10-energy-for-every-15-minutes-of-focused-study-time-tracked-by-in-app-timer-bonus-energy-for-daily-streaks-consistency-rewards-and-milestone-achievements",
+      "title": "Implement Energy Meter gamification system where students earn +5 energy per correct answer, +20 energy per completed quiz set, +10 energy for every 15 minutes of focused study time tracked by in-app timer, bonus energy for daily streaks, consistency rewards, and milestone achievements",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-energy-spending-system-where-students-can-unlock-mini-games-word-rush-math-blaster-science-snap-memory-grid-quiz-battle-mode-customize-avatars-with-outfits-themes-accessories-unlock-new-themes-and-sound-packs-access-challenge-tournaments-and-unlock-advanced-mastery-levels",
+      "title": "Create energy spending system where students can unlock mini-games (Word Rush, Math Blaster, Science Snap, Memory Grid, Quiz Battle Mode), customize avatars with outfits/themes/accessories, unlock new themes and sound packs, access challenge tournaments, and unlock advanced mastery levels",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-daily-quests-weekly-missions-energy-boost-hours-surprise-time-limited-events-seasonal-events-and-limited-time-academic-challenges-that-award-bonus-energy",
+      "title": "Implement daily quests, weekly missions, Energy Boost Hours (surprise time-limited events), seasonal events, and limited-time academic challenges that award bonus energy",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-dashboard-displaying-animated-energy-bar-streak-counter-daily-goal-progress-tracker-subject-cards-with-progress-indicators-achievement-shelf-optional-privacy-safe-leaderboard-performance-insights-and-continue-learning-button-with-ai-powered-weak-topic-suggestions",
+      "title": "Build dashboard displaying animated energy bar, streak counter, daily goal progress tracker, subject cards with progress indicators, achievement shelf, optional privacy-safe leaderboard, performance insights, and 'Continue Learning' button with AI-powered weak topic suggestions",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-learning-system-with-multiple-question-types-multiple-choice-fill-in-the-blanks-match-the-following-drag-and-drop-activities-reasoning-questions-for-higher-grades-diagram-based-and-visual-questions-with-timed-quizzes-adaptive-difficulty-levels-and-instant-explanations-after-every-answer",
+      "title": "Create learning system with multiple question types: multiple-choice, fill-in-the-blanks, match-the-following, drag-and-drop activities, reasoning questions for higher grades, diagram-based and visual questions, with timed quizzes, adaptive difficulty levels, and instant explanations after every answer",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-study-resources-including-interactive-study-notes-quick-summary-cards-flashcards-with-flip-animations-and-placeholder-for-short-concept-videos-that-are-age-appropriate-and-educational-only",
+      "title": "Create study resources including interactive study notes, quick summary cards, flashcards with flip animations, and placeholder for short concept videos that are age-appropriate and educational-only",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-secure-user-authentication-system-with-internet-identity-integration-optional-parental-control-access-portal-screen-time-limit-settings-break-reminders-with-messages-like-quick-5-min-break-your-brain-deserves-it-and-progress-report-generation-for-parents",
+      "title": "Implement secure user authentication system with Internet Identity integration, optional parental control access portal, screen-time limit settings, break reminders with messages like 'Quick 5-min break? Your brain deserves it!', and progress report generation for parents",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-accessibility-features-text-to-speech-for-questions-and-content-adjustable-font-sizes-dyslexia-friendly-font-option-dark-and-light-mode-toggle-offline-practice-mode-for-limited-internet-and-low-data-mode",
+      "title": "Add accessibility features: text-to-speech for questions and content, adjustable font sizes, dyslexia-friendly font option, dark and light mode toggle, offline practice mode for limited internet, and low-data mode",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-supplementary-learning-tools-motivational-quotes-display-calming-background-music-options-with-on-off-toggle-customizable-sound-effects-focus-mode-distraction-free-ui-exam-countdown-tracker-timetable-planner-homework-reminder-section-and-goal-setting-feature-for-target-scores",
+      "title": "Add supplementary learning tools: motivational quotes display, calming background music options with on/off toggle, customizable sound effects, focus mode (distraction-free UI), exam countdown tracker, timetable planner, homework reminder section, and goal-setting feature for target scores",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-modern-ui-with-brain-and-lightning-theme-colorful-but-not-distracting-palette-avoid-overuse-of-blue-and-purple-unless-intentional-smooth-animations-clean-typography-intuitive-navigation-and-fully-responsive-design-for-all-devices",
+      "title": "Design modern UI with brain and lightning theme, colorful but not distracting palette (avoid overuse of blue and purple unless intentional), smooth animations, clean typography, intuitive navigation, and fully responsive design for all devices",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-weekly-performance-analytics-displaying-accuracy-percentage-time-spent-learning-improvement-graphs-over-time-weak-topic-detection-algorithm-and-ai-study-suggestions-like-revise-algebra-today",
+      "title": "Implement weekly performance analytics displaying accuracy percentage, time spent learning, improvement graphs over time, weak-topic detection algorithm, and AI study suggestions like 'Revise Algebra today'",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-want-to-prepare-for-olympiads-option-prominently-at-the-top-of-the-dashboard-with-information-section-explaining-olympiad-preparation-benefits-and-a-5-question-diagnostic-quiz-to-assess-readiness",
+      "title": "Add 'Want to prepare for Olympiads?' option prominently at the top of the dashboard with information section explaining Olympiad preparation benefits and a 5-question diagnostic quiz to assess readiness",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-five-unlockable-mini-games-word-rush-word-vocabulary-game-math-blaster-fast-paced-math-challenges-science-snap-science-quiz-game-memory-grid-memory-matching-game-and-quiz-battle-mode-competitive-quiz-format",
+      "title": "Implement five unlockable mini-games: Word Rush (word/vocabulary game), Math Blaster (fast-paced math challenges), Science Snap (science quiz game), Memory Grid (memory matching game), and Quiz Battle Mode (competitive quiz format)",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Animated welcome screen with onboarding flow (grade, board, stream selection)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Energy Meter gamification system with earning rules, combo bonuses, and spending options",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Dashboard with energy bar, streak counter, daily goals, subject cards, achievement shelf, leaderboard, and AI-powered learning suggestions",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Adaptive learning system with multiple question types, instant feedback, mastery tracking, and spaced repetition",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Unlockable mini-games (Word Rush, Math Blaster, Science Snap, Memory Grid, Quiz Battle Mode)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Avatar customization system with unlockable outfits, themes, and accessories",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Daily quests, weekly missions, Energy Boost Hours, seasonal events, and challenge tournaments",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Parental control system with progress reports, screen-time limits, and break reminders",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Accessibility features (text-to-speech, adjustable fonts, dyslexia-friendly option, dark/light modes, offline mode)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Weekly analytics with accuracy tracking, improvement graphs, weak-topic detection, and achievement badges",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Study tools (interactive notes, flashcards, summary cards, concept videos, timetable planner, homework reminders)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Olympiad preparation mode with information section and 5-question diagnostic quiz",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Add combo bonus system that awards extra energy for answering multiple questions correctly in a row during quizzes",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-22",
+      "summary": "Implement positive feedback system showing 'Boom! That's brain power!' for correct answers and constructive responses like 'Almost there! Let's review that concept together.' for incorrect answers, maintaining friendly and motivating tone",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-23",
+      "summary": "Build mastery tracking system with concept strength meters, revision reminders, spaced repetition for difficult topics, and smart 'Practice Again' button that identifies weak areas",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-26",
+      "summary": "Ensure strict safety measures: no external ads, no unsafe links, educational-only content, privacy protection, child-safe data handling, disabled or heavily moderated chat if multiplayer exists, and clear reporting tools for concerns",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-28",
+      "summary": "Create smooth pop-up notification system for Level Up, Concept Mastered, Energy Full, Streak Milestone, Achievement Unlocked, and Study Reminder events that are non-intrusive and dismissible",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-32",
+      "summary": "Create achievement badge system with badges including Brain Starter, Energy Master, 7-Day Streak Hero, Math Wizard, Science Champ, and other milestone achievements that unlock based on student progress",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-33",
+      "summary": "Generate grade-appropriate questions with difficulty calibrated to each grade level, ensuring questions are challenging but not beyond student capability",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "status": "pending"
+    }
+  ],
+  "projectName": "BrainBox",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

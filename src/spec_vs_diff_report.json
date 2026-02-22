@@ -1,0 +1,216 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-21T14:16:29.419Z",
+  "summary": "The diff implements core frontend infrastructure including routing, authentication, dashboard components, and basic user profile backend functionality. However, it only covers approximately 20-30% of the specified requirements. Most gamification features, learning systems, mini-games, accessibility features, and safety measures are not implemented.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "Create animated welcome screen with exact text and smooth transitions",
+      "reason": "WelcomeScreen component exists in routing but implementation file is not included in diff",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "requirement": "Complete onboarding flow with grade, educational system, and stream selection",
+      "reason": "OnboardingFlow component referenced but implementation not shown; backend supports profile creation but frontend form implementation missing",
+      "evidence": [
+        "frontend/src/App.tsx",
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "requirement": "Energy Meter system with +5 per correct answer, +20 per quiz, +10 per 15-min study, daily streaks, consistency rewards",
+      "reason": "Only basic energy state management exists; no quiz completion tracking, study timer, or reward logic implemented",
+      "evidence": [
+        "frontend/src/hooks/useEnergy.ts"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "requirement": "Combo bonus system for consecutive correct answers",
+      "reason": "No combo tracking logic or state management found in diff",
+      "evidence": []
+    },
+    {
+      "id": "REQ-6",
+      "requirement": "Energy spending system for unlocking mini-games, avatars, themes, tournaments, mastery levels",
+      "reason": "Basic spendEnergy function exists but no shop items, unlock logic, or purchase implementation shown",
+      "evidence": [
+        "frontend/src/hooks/useEnergy.ts"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "requirement": "Daily quests, weekly missions, Energy Boost Hours, seasonal events, limited-time challenges",
+      "reason": "QuestsPanel shows hardcoded daily quests UI only; no reset logic, weekly missions, boost hours, seasonal events, or challenge system",
+      "evidence": [
+        "frontend/src/components/Dashboard/QuestsPanel.tsx"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "requirement": "Dashboard with AI-powered weak topic suggestions in Continue Learning button",
+      "reason": "ContinueLearningButton shows hardcoded text; no AI logic or weak topic detection algorithm implemented",
+      "evidence": [
+        "frontend/src/components/Dashboard/ContinueLearningButton.tsx"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "requirement": "Learning system with 6 question types, timed quizzes, adaptive difficulty, instant explanations",
+      "reason": "QuizView component referenced but implementation not included; no question type logic or adaptive difficulty system shown",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "requirement": "Positive feedback system with specific messages for correct/incorrect answers",
+      "reason": "No feedback component or logic found in diff",
+      "evidence": []
+    },
+    {
+      "id": "REQ-11",
+      "requirement": "Mastery tracking with concept strength meters, revision reminders, spaced repetition, Practice Again button",
+      "reason": "SubjectCard shows random progress percentage; no actual mastery tracking, strength meters, spaced repetition, or targeted practice logic",
+      "evidence": [
+        "frontend/src/components/Dashboard/SubjectCard.tsx"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "requirement": "Study resources: interactive notes, summary cards, flashcards with flip animations, video placeholders",
+      "reason": "ResourcesHub component referenced but implementation not included",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "requirement": "Internet Identity with parental control portal, screen-time limits, break reminders, progress reports",
+      "reason": "Internet Identity authentication implemented but parental controls, screen-time limits, break reminders, and progress reports missing",
+      "evidence": [
+        "frontend/src/hooks/useInternetIdentity.ts"
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "requirement": "Safety measures: no ads, no unsafe links, educational-only content, privacy protection, moderation, reporting tools",
+      "reason": "No content filtering, link blocking, moderation system, or reporting mechanism implemented",
+      "evidence": []
+    },
+    {
+      "id": "REQ-15",
+      "requirement": "Accessibility features: text-to-speech, adjustable fonts, dyslexia-friendly font, offline mode, low-data mode",
+      "reason": "Only dark/light mode toggle shown; no text-to-speech, font adjustments, dyslexia font, offline caching, or low-data mode",
+      "evidence": [
+        "frontend/src/components/Navigation/Header.tsx"
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "requirement": "Pop-up notification system for 6 event types with smooth animations",
+      "reason": "Sonner toaster imported but no notification triggering logic or pop-up components implemented",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "requirement": "Supplementary tools: motivational quotes, background music, sound effects, focus mode, exam countdown, timetable, homework reminders, goal-setting",
+      "reason": "MotivationalQuote component shows random quote but music toggle, sound effects, focus mode, exam tracker, timetable, homework reminders, and goal-setting missing",
+      "evidence": [
+        "frontend/src/components/Dashboard/MotivationalQuote.tsx"
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "requirement": "Weekly performance analytics with accuracy, time tracking, improvement graphs, weak-topic detection, AI suggestions",
+      "reason": "AnalyticsDashboard component referenced but implementation not included",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "requirement": "Achievement badge system with unlock conditions and progress tracking",
+      "reason": "AchievementShelf displays hardcoded badges; no unlock logic, condition checking, or progress tracking implemented",
+      "evidence": [
+        "frontend/src/components/Dashboard/AchievementShelf.tsx"
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "requirement": "Grade-appropriate questions with calibrated difficulty",
+      "reason": "No question generation, storage, or difficulty calibration system found",
+      "evidence": []
+    },
+    {
+      "id": "REQ-22",
+      "requirement": "Olympiad preparation option with information section and 5-question diagnostic quiz",
+      "reason": "OlympiadBanner shows promotional card but OlympiadHub implementation not included; no diagnostic quiz or assessment logic",
+      "evidence": [
+        "frontend/src/components/Olympiad/OlympiadBanner.tsx",
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "requirement": "Five unlockable mini-games: Word Rush, Math Blaster, Science Snap, Memory Grid, Quiz Battle Mode",
+      "reason": "MiniGamesHub component referenced but implementation not included; no game logic or unlock system shown",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [],
+  "confidence": 0.85,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/Dashboard/AchievementShelf.tsx",
+    "frontend/src/components/Dashboard/ContinueLearningButton.tsx",
+    "frontend/src/components/Dashboard/DailyGoalTracker.tsx",
+    "frontend/src/components/Dashboard/EnergyMeter.tsx",
+    "frontend/src/components/Dashboard/MotivationalQuote.tsx",
+    "frontend/src/components/Dashboard/QuestsPanel.tsx",
+    "frontend/src/components/Dashboard/StreakCounter.tsx",
+    "frontend/src/components/Dashboard/SubjectCard.tsx",
+    "frontend/src/components/Dashboard/SubjectGrid.tsx",
+    "frontend/src/components/Layout/AppLayout.tsx",
+    "frontend/src/components/Navigation/Header.tsx",
+    "frontend/src/components/Navigation/Sidebar.tsx",
+    "frontend/src/components/Olympiad/OlympiadBanner.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useEnergy.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/hooks/useStreak.ts",
+    "frontend/src/hooks/useUserProfile.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/AnalyticsDashboard.tsx",
+    "frontend/src/pages/Dashboard.tsx",
+    "frontend/src/pages/EnergyShop.tsx",
+    "frontend/src/pages/MiniGamesHub.tsx",
+    "frontend/src/pages/OlympiadHub.tsx",
+    "frontend/src/pages/OnboardingFlow.tsx",
+    "frontend/src/pages/ParentPortal.tsx",
+    "frontend/src/pages/QuizView.tsx",
+    "frontend/src/pages/ResourcesHub.tsx",
+    "frontend/src/pages/SettingsPage.tsx",
+    "frontend/src/pages/ToolsHub.tsx",
+    "frontend/src/pages/WelcomeScreen.tsx",
+    "frontend/src/utils/subjectGenerator.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

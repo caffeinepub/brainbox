@@ -1,0 +1,506 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-21T14:16:29.432Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 23,
+    "implemented": 16,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Create animated welcome screen displaying 'Welcome to BrainBox! 🧠⚡' with tagline 'Charge Your Brain. Unlock Your Game.' and a bold 'Let's Start' button with smooth transitions",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/WelcomeScreen.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-10",
+        "summary": "Implement positive feedback system showing 'Boom! That's brain power!' for correct answers and constructive responses like 'Almost there! Let's review that concept together.' for incorrect answers, maintaining friendly and motivating tone",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/components/Learning/FeedbackToast.tsx",
+          "frontend/src/utils/feedbackMessages.ts"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Build mastery tracking system with concept strength meters, revision reminders, spaced repetition for difficult topics, and smart 'Practice Again' button that identifies weak areas",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/components/Learning/MasteryMeter.tsx",
+          "frontend/src/components/Learning/RevisionReminder.tsx",
+          "frontend/src/components/Learning/PracticeAgainButton.tsx",
+          "frontend/src/hooks/useMastery.ts"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-12",
+        "summary": "Create study resources including interactive study notes, quick summary cards, flashcards with flip animations, and placeholder for short concept videos that are age-appropriate and educational-only",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Resources/StudyNotes.tsx",
+          "frontend/src/components/Resources/SummaryCards.tsx",
+          "frontend/src/components/Resources/Flashcards.tsx",
+          "frontend/src/components/Resources/VideoPlaceholder.tsx",
+          "frontend/src/components/Resources/ResourcesHub.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-13",
+        "summary": "Implement secure user authentication system with Internet Identity integration, optional parental control access portal, screen-time limit settings, break reminders with messages like 'Quick 5-min break? Your brain deserves it!', and progress report generation for parents",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Auth/LoginPage.tsx",
+          "frontend/src/components/Auth/ParentPortal.tsx",
+          "frontend/src/components/Settings/ScreenTimeSettings.tsx",
+          "frontend/src/components/Settings/BreakReminder.tsx",
+          "frontend/src/components/Reports/ProgressReport.tsx",
+          "frontend/src/hooks/useAuth.ts",
+          "frontend/src/hooks/useScreenTime.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-14",
+        "summary": "Ensure strict safety measures: no external ads, no unsafe links, educational-only content, privacy protection, child-safe data handling, disabled or heavily moderated chat if multiplayer exists, and clear reporting tools for concerns",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/components/Safety/ContentFilter.tsx",
+          "frontend/src/components/Safety/ReportButton.tsx",
+          "frontend/src/utils/contentSafety.ts"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-15",
+        "summary": "Add accessibility features: text-to-speech for questions and content, adjustable font sizes, dyslexia-friendly font option, dark and light mode toggle, offline practice mode for limited internet, and low-data mode",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Accessibility/TextToSpeech.tsx",
+          "frontend/src/components/Settings/AccessibilitySettings.tsx",
+          "frontend/src/hooks/useTheme.ts",
+          "frontend/src/hooks/useOfflineMode.ts",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-16",
+        "summary": "Create smooth pop-up notification system for Level Up, Concept Mastered, Energy Full, Streak Milestone, Achievement Unlocked, and Study Reminder events that are non-intrusive and dismissible",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/components/Notifications/NotificationSystem.tsx",
+          "frontend/src/components/Notifications/LevelUpNotification.tsx",
+          "frontend/src/components/Notifications/ConceptMasteredNotification.tsx",
+          "frontend/src/components/Notifications/EnergyFullNotification.tsx",
+          "frontend/src/components/Notifications/StreakMilestoneNotification.tsx",
+          "frontend/src/components/Notifications/AchievementUnlockedNotification.tsx",
+          "frontend/src/components/Notifications/StudyReminderNotification.tsx",
+          "frontend/src/hooks/useNotifications.ts"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-17",
+        "summary": "Add supplementary learning tools: motivational quotes display, calming background music options with on/off toggle, customizable sound effects, focus mode (distraction-free UI), exam countdown tracker, timetable planner, homework reminder section, and goal-setting feature for target scores",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Dashboard/MotivationalQuote.tsx",
+          "frontend/src/components/Settings/AudioSettings.tsx",
+          "frontend/src/components/Learning/FocusMode.tsx",
+          "frontend/src/components/Tools/ExamCountdown.tsx",
+          "frontend/src/components/Tools/TimetablePlanner.tsx",
+          "frontend/src/components/Tools/HomeworkReminder.tsx",
+          "frontend/src/components/Tools/GoalSetting.tsx",
+          "frontend/src/components/Tools/ToolsHub.tsx",
+          "frontend/src/hooks/useAudio.ts",
+          "frontend/src/utils/motivationalQuotes.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Dashboard/MotivationalQuote.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-18",
+        "summary": "Design modern UI with brain and lightning theme, colorful but not distracting palette (avoid overuse of blue and purple unless intentional), smooth animations, clean typography, intuitive navigation, and fully responsive design for all devices",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Layout/AppLayout.tsx",
+          "frontend/src/components/Navigation/Sidebar.tsx",
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Layout/AppLayout.tsx",
+          "frontend/src/components/Navigation/Sidebar.tsx",
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ]
+      },
+      {
+        "id": "REQ-19",
+        "summary": "Implement weekly performance analytics displaying accuracy percentage, time spent learning, improvement graphs over time, weak-topic detection algorithm, and AI study suggestions like 'Revise Algebra today'",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Analytics/AnalyticsDashboard.tsx",
+          "frontend/src/components/Analytics/AccuracyChart.tsx",
+          "frontend/src/components/Analytics/TimeSpentChart.tsx",
+          "frontend/src/components/Analytics/ImprovementGraph.tsx",
+          "frontend/src/components/Analytics/WeakTopicsPanel.tsx",
+          "frontend/src/components/Analytics/AISuggestions.tsx",
+          "frontend/src/hooks/useAnalytics.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Implement onboarding flow asking users to select grade (Grade 1-12), educational system (CBSE, ICSE, State Board, IB, IGCSE, Other), and for Grades 11-12 ask stream selection (Science, Commerce, Humanities)",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Onboarding/OnboardingFlow.tsx",
+          "frontend/src/components/Onboarding/GradeSelector.tsx",
+          "frontend/src/components/Onboarding/EducationalSystemSelector.tsx",
+          "frontend/src/components/Onboarding/StreamSelector.tsx",
+          "frontend/src/hooks/useUserProfile.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useUserProfile.ts",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-20",
+        "summary": "Create achievement badge system with badges including Brain Starter, Energy Master, 7-Day Streak Hero, Math Wizard, Science Champ, and other milestone achievements that unlock based on student progress",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/components/Achievements/BadgeDisplay.tsx",
+          "frontend/src/components/Achievements/BadgeUnlockAnimation.tsx",
+          "frontend/src/hooks/useAchievements.ts"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-21",
+        "summary": "Generate grade-appropriate questions with difficulty calibrated to each grade level, ensuring questions are challenging but not beyond student capability",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-22",
+        "summary": "Add 'Want to prepare for Olympiads?' option prominently at the top of the dashboard with information section explaining Olympiad preparation benefits and a 5-question diagnostic quiz to assess readiness",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Olympiad/OlympiadBanner.tsx",
+          "frontend/src/components/Olympiad/OlympiadInfo.tsx",
+          "frontend/src/components/Olympiad/DiagnosticQuiz.tsx",
+          "frontend/src/components/Olympiad/OlympiadHub.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Olympiad/OlympiadBanner.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-23",
+        "summary": "Implement five unlockable mini-games: Word Rush (word/vocabulary game), Math Blaster (fast-paced math challenges), Science Snap (science quiz game), Memory Grid (memory matching game), and Quiz Battle Mode (competitive quiz format)",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/MiniGames/WordRush.tsx",
+          "frontend/src/components/MiniGames/MathBlaster.tsx",
+          "frontend/src/components/MiniGames/ScienceSnap.tsx",
+          "frontend/src/components/MiniGames/MemoryGrid.tsx",
+          "frontend/src/components/MiniGames/QuizBattle.tsx",
+          "frontend/src/components/MiniGames/MiniGamesHub.tsx",
+          "frontend/src/hooks/useMiniGames.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Automatically generate appropriate subject list based on selected grade and stream: Grades 1-5 (English, Mathematics, EVS, General Knowledge, Computer Basics), Grades 6-8 (English, Mathematics, Science, Social Studies, Computer Science), Grades 9-10 (English, Mathematics, Physics, Chemistry, Biology, Social Science, Computer Science), Grades 11-12 Science (Physics, Chemistry, Biology, Mathematics, Computer Science), Grades 11-12 Commerce (Accounts, Business Studies, Economics, Mathematics), Grades 11-12 Humanities (History, Political Science, Geography, etc.)",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/utils/subjectGenerator.ts",
+          "frontend/src/components/Dashboard/SubjectCard.tsx",
+          "frontend/src/components/Dashboard/SubjectGrid.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/utils/subjectGenerator.ts",
+          "frontend/src/components/Dashboard/SubjectCard.tsx",
+          "frontend/src/components/Dashboard/SubjectGrid.tsx"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Implement Energy Meter gamification system where students earn +5 energy per correct answer, +20 energy per completed quiz set, +10 energy for every 15 minutes of focused study time tracked by in-app timer, bonus energy for daily streaks, consistency rewards, and milestone achievements",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Dashboard/EnergyMeter.tsx",
+          "frontend/src/hooks/useEnergy.ts",
+          "frontend/src/components/Learning/StudyTimer.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Dashboard/EnergyMeter.tsx",
+          "frontend/src/hooks/useEnergy.ts"
+        ]
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Add combo bonus system that awards extra energy for answering multiple questions correctly in a row during quizzes",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/src/components/Learning/ComboTracker.tsx",
+          "frontend/src/hooks/useCombo.ts"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Create energy spending system where students can unlock mini-games (Word Rush, Math Blaster, Science Snap, Memory Grid, Quiz Battle Mode), customize avatars with outfits/themes/accessories, unlock new themes and sound packs, access challenge tournaments, and unlock advanced mastery levels",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Shop/EnergyShop.tsx",
+          "frontend/src/components/Shop/ShopItem.tsx",
+          "frontend/src/hooks/useShop.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Implement daily quests, weekly missions, Energy Boost Hours (surprise time-limited events), seasonal events, and limited-time academic challenges that award bonus energy",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Dashboard/QuestsPanel.tsx",
+          "frontend/src/components/Events/EventBanner.tsx",
+          "frontend/src/hooks/useQuests.ts",
+          "frontend/src/hooks/useEvents.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Dashboard/QuestsPanel.tsx"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Build dashboard displaying animated energy bar, streak counter, daily goal progress tracker, subject cards with progress indicators, achievement shelf, optional privacy-safe leaderboard, performance insights, and 'Continue Learning' button with AI-powered weak topic suggestions",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Dashboard/Dashboard.tsx",
+          "frontend/src/components/Dashboard/StreakCounter.tsx",
+          "frontend/src/components/Dashboard/DailyGoalTracker.tsx",
+          "frontend/src/components/Dashboard/AchievementShelf.tsx",
+          "frontend/src/components/Dashboard/Leaderboard.tsx",
+          "frontend/src/components/Dashboard/ContinueLearningButton.tsx",
+          "frontend/src/hooks/useStreak.ts",
+          "frontend/src/hooks/useDailyGoals.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Dashboard/StreakCounter.tsx",
+          "frontend/src/components/Dashboard/DailyGoalTracker.tsx",
+          "frontend/src/components/Dashboard/AchievementShelf.tsx",
+          "frontend/src/components/Dashboard/ContinueLearningButton.tsx",
+          "frontend/src/hooks/useStreak.ts",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Create learning system with multiple question types: multiple-choice, fill-in-the-blanks, match-the-following, drag-and-drop activities, reasoning questions for higher grades, diagram-based and visual questions, with timed quizzes, adaptive difficulty levels, and instant explanations after every answer",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Learning/QuizView.tsx",
+          "frontend/src/components/Learning/QuestionTypes/MultipleChoice.tsx",
+          "frontend/src/components/Learning/QuestionTypes/FillInTheBlank.tsx",
+          "frontend/src/components/Learning/QuestionTypes/MatchTheFollowing.tsx",
+          "frontend/src/components/Learning/QuestionTypes/DragAndDrop.tsx",
+          "frontend/src/components/Learning/QuestionTypes/ReasoningQuestion.tsx",
+          "frontend/src/components/Learning/QuestionTypes/DiagramBased.tsx",
+          "frontend/src/components/Learning/QuizTimer.tsx",
+          "frontend/src/components/Learning/ExplanationPanel.tsx",
+          "frontend/src/hooks/useAdaptiveDifficulty.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "build-template/Dockerfile",
+    "build-template/LICENSE",
+    "build-template/README.md",
+    "build-template/deploy.sh",
+    "build-template/icp.yaml",
+    "build-template/package.json",
+    "build-template/pnpm-lock.yaml",
+    "build-template/pnpm-workspace.yaml",
+    "build-template/scripts/prune-unused-images.js",
+    "build-template/scripts/resize-images.js",
+    "build-template/src/backend/canister.yaml",
+    "build-template/src/backend/system-idl/aaaaa-aa.did",
+    "build-template/src/frontend/canister.yaml",
+    "build-template/src/frontend/components.json",
+    "build-template/src/frontend/env.json",
+    "build-template/src/frontend/eslint-rules/no-bigint-in-query-keys.js",
+    "build-template/src/frontend/eslint-rules/require-internet-identity-provider.js",
+    "build-template/src/frontend/eslint.config.js",
+    "build-template/src/frontend/package.json",
+    "build-template/src/frontend/postcss.config.js",
+    "build-template/src/frontend/src/components/ui/accordion.tsx",
+    "build-template/src/frontend/src/components/ui/alert-dialog.tsx",
+    "build-template/src/frontend/src/components/ui/alert.tsx",
+    "build-template/src/frontend/src/components/ui/aspect-ratio.tsx",
+    "build-template/src/frontend/src/components/ui/avatar.tsx",
+    "build-template/src/frontend/src/components/ui/badge.tsx",
+    "build-template/src/frontend/src/components/ui/breadcrumb.tsx",
+    "build-template/src/frontend/src/components/ui/button.tsx",
+    "build-template/src/frontend/src/components/ui/calendar.tsx",
+    "build-template/src/frontend/src/components/ui/card.tsx",
+    "build-template/src/frontend/src/components/ui/carousel.tsx",
+    "build-template/src/frontend/src/components/ui/chart.tsx",
+    "build-template/src/frontend/src/components/ui/checkbox.tsx",
+    "build-template/src/frontend/src/components/ui/collapsible.tsx",
+    "build-template/src/frontend/src/components/ui/command.tsx",
+    "build-template/src/frontend/src/components/ui/context-menu.tsx",
+    "build-template/src/frontend/src/components/ui/dialog.tsx",
+    "build-template/src/frontend/src/components/ui/drawer.tsx",
+    "build-template/src/frontend/src/components/ui/dropdown-menu.tsx",
+    "build-template/src/frontend/src/components/ui/form.tsx",
+    "build-template/src/frontend/src/components/ui/hover-card.tsx",
+    "build-template/src/frontend/src/components/ui/input-otp.tsx",
+    "build-template/src/frontend/src/components/ui/input.tsx",
+    "build-template/src/frontend/src/components/ui/label.tsx",
+    "build-template/src/frontend/src/components/ui/menubar.tsx",
+    "build-template/src/frontend/src/components/ui/navigation-menu.tsx",
+    "build-template/src/frontend/src/components/ui/pagination.tsx",
+    "build-template/src/frontend/src/components/ui/popover.tsx",
+    "build-template/src/frontend/src/components/ui/progress.tsx",
+    "build-template/src/frontend/src/components/ui/radio-group.tsx",
+    "build-template/src/frontend/src/components/ui/resizable.tsx",
+    "build-template/src/frontend/src/components/ui/scroll-area.tsx",
+    "build-template/src/frontend/src/components/ui/select.tsx",
+    "build-template/src/frontend/src/components/ui/separator.tsx",
+    "build-template/src/frontend/src/components/ui/sheet.tsx",
+    "build-template/src/frontend/src/components/ui/sidebar.tsx",
+    "build-template/src/frontend/src/components/ui/skeleton.tsx",
+    "build-template/src/frontend/src/components/ui/slider.tsx",
+    "build-template/src/frontend/src/components/ui/sonner.tsx",
+    "build-template/src/frontend/src/components/ui/switch.tsx",
+    "build-template/src/frontend/src/components/ui/table.tsx",
+    "build-template/src/frontend/src/components/ui/tabs.tsx",
+    "build-template/src/frontend/src/components/ui/textarea.tsx",
+    "build-template/src/frontend/src/components/ui/toggle-group.tsx",
+    "build-template/src/frontend/src/components/ui/toggle.tsx",
+    "build-template/src/frontend/src/components/ui/tooltip.tsx",
+    "build-template/src/frontend/src/hooks/use-mobile.tsx",
+    "build-template/src/frontend/src/lib/utils.ts",
+    "build-template/src/frontend/tsconfig.json",
+    "build-template/src/frontend/vite.config.js",
+    "build-template/tsconfig.json",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/public/assets/generated/badge-brain-starter.dim_256x256.png",
+    "frontend/public/assets/generated/badge-energy-master.dim_256x256.png",
+    "frontend/public/assets/generated/badge-math-wizard.dim_256x256.png",
+    "frontend/public/assets/generated/badge-science-champ.dim_256x256.png",
+    "frontend/public/assets/generated/badge-streak-hero.dim_256x256.png",
+    "frontend/public/assets/generated/brainbox-hero.dim_1200x600.png",
+    "frontend/public/assets/generated/dashboard-bg-dark.dim_1920x1080.png",
+    "frontend/public/assets/generated/dashboard-bg-light.dim_1920x1080.png",
+    "frontend/public/assets/generated/energy-icon.dim_128x128.png",
+    "frontend/public/assets/generated/minigame-math-blaster.dim_256x256.png",
+    "frontend/public/assets/generated/minigame-memory-grid.dim_256x256.png",
+    "frontend/public/assets/generated/minigame-quiz-battle.dim_256x256.png",
+    "frontend/public/assets/generated/minigame-science-snap.dim_256x256.png",
+    "frontend/public/assets/generated/minigame-word-rush.dim_256x256.png",
+    "frontend/public/assets/generated/olympiad-banner.dim_800x200.png",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/Dashboard/AchievementShelf.tsx",
+    "frontend/src/components/Dashboard/ContinueLearningButton.tsx",
+    "frontend/src/components/Dashboard/DailyGoalTracker.tsx",
+    "frontend/src/components/Dashboard/EnergyMeter.tsx",
+    "frontend/src/components/Dashboard/MotivationalQuote.tsx",
+    "frontend/src/components/Dashboard/QuestsPanel.tsx",
+    "frontend/src/components/Dashboard/StreakCounter.tsx",
+    "frontend/src/components/Dashboard/SubjectCard.tsx",
+    "frontend/src/components/Dashboard/SubjectGrid.tsx",
+    "frontend/src/components/Layout/AppLayout.tsx",
+    "frontend/src/components/Navigation/Header.tsx",
+    "frontend/src/components/Navigation/Sidebar.tsx",
+    "frontend/src/components/Olympiad/OlympiadBanner.tsx",
+    "frontend/src/config.ts",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useEnergy.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/hooks/useStreak.ts",
+    "frontend/src/hooks/useUserProfile.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/AnalyticsDashboard.tsx",
+    "frontend/src/pages/Dashboard.tsx",
+    "frontend/src/pages/EnergyShop.tsx",
+    "frontend/src/pages/MiniGamesHub.tsx",
+    "frontend/src/pages/OlympiadHub.tsx",
+    "frontend/src/pages/OnboardingFlow.tsx",
+    "frontend/src/pages/ParentPortal.tsx",
+    "frontend/src/pages/QuizView.tsx",
+    "frontend/src/pages/ResourcesHub.tsx",
+    "frontend/src/pages/SettingsPage.tsx",
+    "frontend/src/pages/ToolsHub.tsx",
+    "frontend/src/pages/WelcomeScreen.tsx",
+    "frontend/src/ui-summary.json",
+    "frontend/src/utils/StorageClient.ts",
+    "frontend/src/utils/subjectGenerator.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

@@ -1,0 +1,520 @@
+{
+  "kind": "build_request",
+  "title": "Build BrainBox gamified educational platform with Energy Meter system and Olympiad prep",
+  "projectName": "BrainBox",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create animated welcome screen displaying 'Welcome to BrainBox! 🧠⚡' with tagline 'Charge Your Brain. Unlock Your Game.' and a bold 'Let's Start' button with smooth transitions",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "The app should open with a vibrant animated welcome screen displaying \"Welcome to BrainBox! 🧠⚡\" and the tagline \"Charge Your Brain. Unlock Your Game.\" with smooth transitions and a bold \"Let's Start\" button"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Welcome screen displays the exact text 'Welcome to BrainBox! 🧠⚡'",
+        "Tagline 'Charge Your Brain. Unlock Your Game.' is visible",
+        "Bold 'Let's Start' button triggers onboarding flow",
+        "Screen includes smooth animations and transitions"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement onboarding flow asking users to select grade (Grade 1-12), educational system (CBSE, ICSE, State Board, IB, IGCSE, Other), and for Grades 11-12 ask stream selection (Science, Commerce, Humanities)",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "During onboarding, the app must ask users to select their grade (Grade 1–12), their educational system (CBSE, ICSE, State Board, IB, IGCSE, or Other)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Grade selection dropdown shows grades 1 through 12",
+        "Educational system selection shows CBSE, ICSE, State Board, IB, IGCSE, and Other",
+        "For grades 11-12, additional stream selection appears (Science, Commerce, Humanities)",
+        "Selected preferences are stored in user profile"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Automatically generate appropriate subject list based on selected grade and stream: Grades 1-5 (English, Mathematics, EVS, General Knowledge, Computer Basics), Grades 6-8 (English, Mathematics, Science, Social Studies, Computer Science), Grades 9-10 (English, Mathematics, Physics, Chemistry, Biology, Social Science, Computer Science), Grades 11-12 Science (Physics, Chemistry, Biology, Mathematics, Computer Science), Grades 11-12 Commerce (Accounts, Business Studies, Economics, Mathematics), Grades 11-12 Humanities (History, Political Science, Geography, etc.)",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "then automatically generate a subject list appropriate to their grade and stream"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Subject list automatically populates based on grade selection",
+        "Grades 1-5 show 5 subjects as specified",
+        "Grades 6-8 show 5 subjects as specified",
+        "Grades 9-10 show 7 subjects as specified",
+        "Grades 11-12 show stream-specific subjects",
+        "Subject cards appear on dashboard after onboarding"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement Energy Meter gamification system where students earn +5 energy per correct answer, +20 energy per completed quiz set, +10 energy for every 15 minutes of focused study time tracked by in-app timer, bonus energy for daily streaks, consistency rewards, and milestone achievements",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "BrainBox must include a powerful Energy Meter gamification system where students earn +5 energy per correct answer, +20 energy per completed quiz set, +10 energy for every 15 minutes of focused study time"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Correct answers award +5 energy immediately",
+        "Completed quiz sets award +20 energy",
+        "Study timer tracks time and awards +10 energy per 15-minute session",
+        "Daily streak counter awards bonus energy",
+        "Energy meter updates in real-time on dashboard",
+        "All energy transactions are stored persistently"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add combo bonus system that awards extra energy for answering multiple questions correctly in a row during quizzes",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Add combo bonuses for answering multiple questions correctly in a row"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Combo counter tracks consecutive correct answers",
+        "Bonus energy increases with longer combos",
+        "Combo breaks when answer is incorrect",
+        "Visual feedback shows combo status during quiz"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Create energy spending system where students can unlock mini-games (Word Rush, Math Blaster, Science Snap, Memory Grid, Quiz Battle Mode), customize avatars with outfits/themes/accessories, unlock new themes and sound packs, access challenge tournaments, and unlock advanced mastery levels",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Energy can be used to unlock mini-games (Word Rush, Math Blaster, Science Snap, Memory Grid, Quiz Battle Mode), customize avatars (outfits, themes, accessories), unlock new themes and sound packs"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Energy shop displays unlockable items with energy costs",
+        "Five mini-games are available for unlock",
+        "Avatar customization options can be purchased with energy",
+        "Theme and sound pack unlocks are available",
+        "Tournament and mastery level unlocks work correctly",
+        "Energy balance updates when items are purchased"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Implement daily quests, weekly missions, Energy Boost Hours (surprise time-limited events), seasonal events, and limited-time academic challenges that award bonus energy",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Include daily quests, weekly missions, surprise \"Energy Boost Hours,\" seasonal events, and limited-time academic challenges"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Daily quests reset every 24 hours",
+        "Weekly missions reset every 7 days",
+        "Energy Boost Hours provide temporary multipliers",
+        "Seasonal events appear at appropriate times",
+        "Challenge progress is tracked and rewarded",
+        "Notification system alerts users to active events"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Build dashboard displaying animated energy bar, streak counter, daily goal progress tracker, subject cards with progress indicators, achievement shelf, optional privacy-safe leaderboard, performance insights, and 'Continue Learning' button with AI-powered weak topic suggestions",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "The dashboard should display an animated energy bar, streak counter, daily goal progress tracker, subject cards, achievement shelf, leaderboard (optional and privacy-safe), performance insights"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Animated energy bar shows current energy level",
+        "Streak counter displays consecutive days of activity",
+        "Daily goal tracker shows progress toward goals",
+        "Subject cards are clickable and show mastery level",
+        "Achievement shelf displays earned badges",
+        "Leaderboard can be toggled on/off for privacy",
+        "'Continue Learning' button suggests weak topics"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Create learning system with multiple question types: multiple-choice, fill-in-the-blanks, match-the-following, drag-and-drop activities, reasoning questions for higher grades, diagram-based and visual questions, with timed quizzes, adaptive difficulty levels, and instant explanations after every answer",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "The learning system should include multiple-choice questions, fill-in-the-blanks, match-the-following, drag-and-drop activities, reasoning questions for higher grades, diagram-based and visual questions"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All six question types are implemented and functional",
+        "Quiz timer displays countdown when enabled",
+        "Difficulty adapts based on student performance",
+        "Instant explanation appears after each answer",
+        "Question types are grade-appropriate",
+        "Visual and diagram-based questions display correctly"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Implement positive feedback system showing 'Boom! That's brain power!' for correct answers and constructive responses like 'Almost there! Let's review that concept together.' for incorrect answers, maintaining friendly and motivating tone",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Provide positive feedback such as \"Boom! That's brain power!\" for correct answers and constructive responses like \"Almost there! Let's review that concept together.\" for incorrect ones"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Correct answers display encouraging messages",
+        "Incorrect answers show constructive feedback",
+        "Feedback animations are smooth and non-intrusive",
+        "Tone remains friendly and age-appropriate",
+        "Multiple feedback variations prevent repetition"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Build mastery tracking system with concept strength meters, revision reminders, spaced repetition for difficult topics, and smart 'Practice Again' button that identifies weak areas",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Include mastery tracking, concept strength meters, revision reminders, spaced repetition for difficult topics, and a smart \"Practice Again\" button"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each concept has a visual strength meter",
+        "Revision reminders appear for unmastered concepts",
+        "Spaced repetition algorithm schedules review sessions",
+        "'Practice Again' button targets weak topics",
+        "Mastery progress is saved and persistent"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Create study resources including interactive study notes, quick summary cards, flashcards with flip animations, and placeholder for short concept videos that are age-appropriate and educational-only",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Add interactive study notes, quick summary cards, flashcards, and short concept videos (age-appropriate and safe)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Interactive notes are organized by subject and topic",
+        "Summary cards display key concepts clearly",
+        "Flashcards have smooth flip animations",
+        "Video placeholders are marked for future integration",
+        "All content is grade-appropriate"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Implement secure user authentication system with Internet Identity integration, optional parental control access portal, screen-time limit settings, break reminders with messages like 'Quick 5-min break? Your brain deserves it!', and progress report generation for parents",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "include a secure login system with optional parental control access, screen-time limits, break reminders (\"Quick 5-min break? Your brain deserves it!\"), progress reports sent to parents"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can authenticate via Internet Identity",
+        "Parental control portal is accessible with separate login",
+        "Screen-time limits are enforceable",
+        "Break reminders appear at configurable intervals",
+        "Progress reports can be viewed by authorized parents",
+        "All data handling follows child-safe privacy standards"
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Ensure strict safety measures: no external ads, no unsafe links, educational-only content, privacy protection, child-safe data handling, disabled or heavily moderated chat if multiplayer exists, and clear reporting tools for concerns",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "safe chat disabled or heavily moderated (if multiplayer exists), no external ads or unsafe links, strict educational-only content, privacy protection, child-safe data handling"
+        ]
+      },
+      "acceptanceCriteria": [
+        "No third-party advertisements appear anywhere",
+        "All external links are blocked or educational-only",
+        "Content is verified to be age-appropriate",
+        "User data is encrypted and protected",
+        "Multiplayer features (if added) have moderation",
+        "Reporting mechanism is visible and functional"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Add accessibility features: text-to-speech for questions and content, adjustable font sizes, dyslexia-friendly font option, dark and light mode toggle, offline practice mode for limited internet, and low-data mode",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Add accessibility features such as text-to-speech, adjustable font sizes, dyslexia-friendly font option, dark and light modes, offline practice mode for limited internet access, low-data mode"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Text-to-speech works for all text content",
+        "Font size can be adjusted in settings",
+        "Dyslexia-friendly font option is available",
+        "Dark and light modes switch smoothly",
+        "Offline mode caches essential content",
+        "Low-data mode reduces resource loading"
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Create smooth pop-up notification system for Level Up, Concept Mastered, Energy Full, Streak Milestone, Achievement Unlocked, and Study Reminder events that are non-intrusive and dismissible",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Include efficient pop-ups such as Level Up, Concept Mastered, Energy Full, Streak Milestone, Achievement Unlocked, and Study Reminder, ensuring they are smooth and non-intrusive"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All six pop-up types are implemented",
+        "Animations are smooth and professional",
+        "Pop-ups don't block critical UI elements",
+        "Users can dismiss pop-ups easily",
+        "Pop-ups queue properly when multiple events occur"
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Add supplementary learning tools: motivational quotes display, calming background music options with on/off toggle, customizable sound effects, focus mode (distraction-free UI), exam countdown tracker, timetable planner, homework reminder section, and goal-setting feature for target scores",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Add motivational quotes, calming background music options, customizable sound effects, a focus mode (distraction-free), exam countdown tracker, timetable planner, homework reminder section, and goal-setting feature"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Motivational quotes rotate on dashboard",
+        "Background music can be toggled and volume adjusted",
+        "Sound effects are customizable in settings",
+        "Focus mode hides non-essential UI elements",
+        "Exam countdown shows days remaining",
+        "Timetable planner allows schedule entry",
+        "Homework reminders send notifications",
+        "Goal-setting interface saves target scores"
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "text": "Design modern UI with brain and lightning theme, colorful but not distracting palette (avoid overuse of blue and purple unless intentional), smooth animations, clean typography, intuitive navigation, and fully responsive design for all devices",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Ensure the UI is modern, colorful but not distracting, built around a brain and lightning theme, with smooth animations, clean typography, intuitive navigation, and responsive design"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Visual design incorporates brain and lightning motifs",
+        "Color palette is vibrant but maintains readability",
+        "All animations run at 60fps on target devices",
+        "Typography is clear and age-appropriate",
+        "Navigation is intuitive for young users",
+        "UI adapts properly to mobile and desktop screens"
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "text": "Implement weekly performance analytics displaying accuracy percentage, time spent learning, improvement graphs over time, weak-topic detection algorithm, and AI study suggestions like 'Revise Algebra today'",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Include weekly performance analytics showing accuracy percentage, time spent learning, improvement graphs, weak-topic detection, AI study suggestions like \"Revise Algebra today\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "Weekly analytics page shows all required metrics",
+        "Accuracy percentage is calculated correctly",
+        "Time tracking is accurate and persistent",
+        "Improvement graphs display trend data",
+        "Algorithm identifies weakest topics",
+        "AI suggestions are contextually relevant"
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "text": "Create achievement badge system with badges including Brain Starter, Energy Master, 7-Day Streak Hero, Math Wizard, Science Champ, and other milestone achievements that unlock based on student progress",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "achievement badges such as Brain Starter, Energy Master, 7-Day Streak Hero, Math Wizard, and Science Champ"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All specified badges are created with unique designs",
+        "Badge unlock conditions are defined and functional",
+        "Achievement shelf displays earned badges",
+        "Unlock animations celebrate achievement",
+        "Badge progress is tracked persistently"
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "text": "Generate grade-appropriate questions with difficulty calibrated to each grade level, ensuring questions are challenging but not beyond student capability",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Don't forget to make questions bit difficult but as per their grade level"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Questions match curriculum standards for each grade",
+        "Difficulty scales appropriately across grade levels",
+        "Questions challenge students without overwhelming",
+        "Content accuracy is maintained for all subjects"
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "text": "Add 'Want to prepare for Olympiads?' option prominently at the top of the dashboard with information section explaining Olympiad preparation benefits and a 5-question diagnostic quiz to assess readiness",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Include a separate option want to prepare for olympiads? At the top. And give information about it and ask for a short quiz 5 points quiz"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Olympiad option is visible at top of dashboard",
+        "Information section explains Olympiad preparation clearly",
+        "5-question diagnostic quiz is available",
+        "Quiz assesses student's current level",
+        "Results provide guidance on Olympiad readiness"
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "text": "Implement five unlockable mini-games: Word Rush (word/vocabulary game), Math Blaster (fast-paced math challenges), Science Snap (science quiz game), Memory Grid (memory matching game), and Quiz Battle Mode (competitive quiz format)",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "unlock mini-games (Word Rush, Math Blaster, Science Snap, Memory Grid, Quiz Battle Mode)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All five mini-games are fully playable",
+        "Each game has distinct mechanics and rules",
+        "Mini-games award energy and achievements",
+        "Games are locked until purchased with energy",
+        "Scores and progress are tracked for each game"
+      ]
+    }
+  ],
+  "constraints": [
+    "Must use Internet Identity for authentication only",
+    "No external authentication providers (Facebook, GitHub, Auth0) allowed",
+    "No third-party AI service integrations (OpenAI, Anthropic)",
+    "No real-time WebSocket features or real-time chat",
+    "No external database services",
+    "All content must be educational-only with no external ads",
+    "Must maintain child-safe privacy standards and data protection",
+    "Frontend must use React with TypeScript and Tailwind CSS",
+    "Backend must use Motoko with single-actor architecture"
+  ],
+  "nonGoals": [
+    "Integration with external educational content APIs",
+    "Video hosting or streaming infrastructure",
+    "SMS or push notification services",
+    "Social media sharing or external social features",
+    "Real-time multiplayer with WebSocket communication",
+    "Payment processing or monetization features",
+    "Integration with school management systems",
+    "Support for languages other than English initially"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Vibrant animated brain with lightning bolts for welcome screen hero image, modern gradient style with energetic feel (brainbox-hero.dim_1200x600.png)",
+      "Energy meter icon showing charging battery with brain symbol, glowing effect suitable for UI (energy-icon.dim_128x128.png)",
+      "Achievement badge for Brain Starter milestone, colorful trophy design (badge-brain-starter.dim_256x256.png)",
+      "Achievement badge for Energy Master milestone, electric theme (badge-energy-master.dim_256x256.png)",
+      "Achievement badge for 7-Day Streak Hero milestone, fire/flame theme (badge-streak-hero.dim_256x256.png)",
+      "Achievement badge for Math Wizard milestone, mathematical symbols theme (badge-math-wizard.dim_256x256.png)",
+      "Achievement badge for Science Champ milestone, science lab theme (badge-science-champ.dim_256x256.png)",
+      "Mini-game icon for Word Rush game, letters and speed theme (minigame-word-rush.dim_256x256.png)",
+      "Mini-game icon for Math Blaster game, numbers and explosion theme (minigame-math-blaster.dim_256x256.png)",
+      "Mini-game icon for Science Snap game, beaker and molecule theme (minigame-science-snap.dim_256x256.png)",
+      "Mini-game icon for Memory Grid game, grid pattern with brain symbol (minigame-memory-grid.dim_256x256.png)",
+      "Mini-game icon for Quiz Battle Mode game, competitive trophy theme (minigame-quiz-battle.dim_256x256.png)",
+      "Background pattern for dashboard with subtle brain and lightning motifs, light theme version (dashboard-bg-light.dim_1920x1080.png)",
+      "Background pattern for dashboard with subtle brain and lightning motifs, dark theme version (dashboard-bg-dark.dim_1920x1080.png)",
+      "Olympiad preparation banner image with trophy and academic symbols (olympiad-banner.dim_800x200.png)"
+    ],
+    "edits": []
+  }
+}

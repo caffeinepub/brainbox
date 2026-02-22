@@ -1,0 +1,900 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "BrainBox Gamified Educational Platform - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create animated welcome screen with branding and call-to-action button",
+      "acceptanceCriteria": [
+        "Welcome screen displays the exact text 'Welcome to BrainBox! 🧠⚡'",
+        "Tagline 'Charge Your Brain. Unlock Your Game.' is visible",
+        "Bold 'Let's Start' button triggers onboarding flow",
+        "Screen includes smooth animations and transitions"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/WelcomeScreen.tsx",
+          "operation": "create",
+          "description": "Create animated welcome screen component displaying the generated hero image from frontend/public/assets/generated/brainbox-hero.dim_1200x600.png, headline 'Welcome to BrainBox! 🧠⚡', tagline 'Charge Your Brain. Unlock Your Game.', and a bold 'Let's Start' button with smooth fade-in animations and scale transitions using Tailwind CSS animate utilities"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for WelcomeScreen as the landing page and configure navigation to onboarding flow when 'Let's Start' button is clicked"
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement multi-step onboarding flow for grade, educational system, and stream selection",
+      "acceptanceCriteria": [
+        "Grade selection dropdown shows grades 1 through 12",
+        "Educational system selection shows CBSE, ICSE, State Board, IB, IGCSE, and Other",
+        "For grades 11-12, additional stream selection appears (Science, Commerce, Humanities)",
+        "Selected preferences are stored in user profile"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Onboarding/OnboardingFlow.tsx",
+          "operation": "create",
+          "description": "Create multi-step onboarding component with three steps: grade selection (1-12), educational system selection (CBSE, ICSE, State Board, IB, IGCSE, Other), and conditional stream selection for grades 11-12 (Science, Commerce, Humanities). Use shadcn/ui Select components for dropdowns and Button components for navigation between steps"
+        },
+        {
+          "path": "frontend/src/components/Onboarding/GradeSelector.tsx",
+          "operation": "create",
+          "description": "Create grade selector component with dropdown showing grades 1-12 using shadcn/ui Select component with proper styling"
+        },
+        {
+          "path": "frontend/src/components/Onboarding/EducationalSystemSelector.tsx",
+          "operation": "create",
+          "description": "Create educational system selector component with dropdown for CBSE, ICSE, State Board, IB, IGCSE, and Other using shadcn/ui Select component"
+        },
+        {
+          "path": "frontend/src/components/Onboarding/StreamSelector.tsx",
+          "operation": "create",
+          "description": "Create conditional stream selector component that only appears for grades 11-12, offering Science, Commerce, and Humanities options using shadcn/ui Select component"
+        },
+        {
+          "path": "frontend/src/hooks/useUserProfile.ts",
+          "operation": "create",
+          "description": "Create custom hook to manage user profile state and call backend's createUserProfile method with selected grade, educationalSystem, and stream values. Handle loading states and errors appropriately"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for OnboardingFlow component and configure navigation from WelcomeScreen to onboarding and from onboarding to dashboard upon completion"
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Display appropriate subject list based on selected grade and stream",
+      "acceptanceCriteria": [
+        "Subject list automatically populates based on grade selection",
+        "Grades 1-5 show 5 subjects as specified",
+        "Grades 6-8 show 5 subjects as specified",
+        "Grades 9-10 show 7 subjects as specified",
+        "Grades 11-12 show stream-specific subjects",
+        "Subject cards appear on dashboard after onboarding"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/subjectGenerator.ts",
+          "operation": "create",
+          "description": "Create utility function that generates appropriate subject list based on grade and stream: Grades 1-5 (English, Mathematics, EVS, General Knowledge, Computer Basics), Grades 6-8 (English, Mathematics, Science, Social Studies, Computer Science), Grades 9-10 (English, Mathematics, Physics, Chemistry, Biology, Social Science, Computer Science), Grades 11-12 Science (Physics, Chemistry, Biology, Mathematics, Computer Science), Grades 11-12 Commerce (Accounts, Business Studies, Economics, Mathematics), Grades 11-12 Humanities (History, Political Science, Geography, etc.)"
+        },
+        {
+          "path": "frontend/src/components/Dashboard/SubjectCard.tsx",
+          "operation": "create",
+          "description": "Create subject card component displaying subject name, icon, progress indicator, and mastery level using shadcn/ui Card component. Make cards clickable to navigate to subject learning view"
+        },
+        {
+          "path": "frontend/src/components/Dashboard/SubjectGrid.tsx",
+          "operation": "create",
+          "description": "Create subject grid component that displays generated subject cards in a responsive grid layout using the subjectGenerator utility to determine which subjects to show based on user profile"
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Implement Energy Meter display and real-time updates",
+      "acceptanceCriteria": [
+        "Correct answers award +5 energy immediately",
+        "Completed quiz sets award +20 energy",
+        "Study timer tracks time and awards +10 energy per 15-minute session",
+        "Daily streak counter awards bonus energy",
+        "Energy meter updates in real-time on dashboard",
+        "All energy transactions are stored persistently"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Dashboard/EnergyMeter.tsx",
+          "operation": "create",
+          "description": "Create animated energy meter component displaying current energy level using the generated icon from frontend/public/assets/generated/energy-icon.dim_128x128.png. Include animated progress bar with glowing effect, energy value display, and smooth transitions when energy changes. Use shadcn/ui Progress component for the bar"
+        },
+        {
+          "path": "frontend/src/hooks/useEnergy.ts",
+          "operation": "create",
+          "description": "Create custom hook to manage energy state, track energy transactions (+5 per correct answer, +20 per completed quiz, +10 per 15-minute study session), calculate combo bonuses, and persist energy data. Include methods to award energy and retrieve current balance"
+        },
+        {
+          "path": "frontend/src/components/Learning/StudyTimer.tsx",
+          "operation": "create",
+          "description": "Create study timer component that tracks focused study time in 15-minute increments and awards +10 energy per completed interval. Display countdown timer with start/pause/stop controls using shadcn/ui Button components"
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add combo bonus system for consecutive correct answers",
+      "acceptanceCriteria": [
+        "Combo counter tracks consecutive correct answers",
+        "Bonus energy increases with longer combos",
+        "Combo breaks when answer is incorrect",
+        "Visual feedback shows combo status during quiz"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Learning/ComboTracker.tsx",
+          "operation": "create",
+          "description": "Create combo tracker component displaying current combo count with animated counter and visual effects (sparks, multiplier badges) when combo milestones are reached. Show combo bonus energy calculation and reset indicator when combo breaks"
+        },
+        {
+          "path": "frontend/src/hooks/useCombo.ts",
+          "operation": "create",
+          "description": "Create custom hook to track consecutive correct answers, calculate combo bonus energy based on streak length, reset combo on incorrect answer, and manage combo state throughout quiz sessions"
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Create energy spending system with unlockable items and mini-games",
+      "acceptanceCriteria": [
+        "Energy shop displays unlockable items with energy costs",
+        "Five mini-games are available for unlock",
+        "Avatar customization options can be purchased with energy",
+        "Theme and sound pack unlocks are available",
+        "Tournament and mastery level unlocks work correctly",
+        "Energy balance updates when items are purchased"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Shop/EnergyShop.tsx",
+          "operation": "create",
+          "description": "Create energy shop component displaying unlockable items organized by category: mini-games (using generated icons from frontend/public/assets/generated/minigame-*.dim_256x256.png), avatar customizations, themes, sound packs, tournaments, and mastery levels. Each item shows energy cost, lock status, and purchase button using shadcn/ui Card and Button components"
+        },
+        {
+          "path": "frontend/src/components/Shop/ShopItem.tsx",
+          "operation": "create",
+          "description": "Create reusable shop item card component displaying item name, icon, description, energy cost, locked/unlocked state, and purchase button. Handle purchase transaction and energy deduction on click"
+        },
+        {
+          "path": "frontend/src/hooks/useShop.ts",
+          "operation": "create",
+          "description": "Create custom hook to manage shop inventory, track owned items, handle purchase transactions with energy deduction, validate sufficient energy balance, and persist purchase history"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for EnergyShop component and wire navigation link from dashboard to shop page"
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Implement daily quests, weekly missions, and time-limited events",
+      "acceptanceCriteria": [
+        "Daily quests reset every 24 hours",
+        "Weekly missions reset every 7 days",
+        "Energy Boost Hours provide temporary multipliers",
+        "Seasonal events appear at appropriate times",
+        "Challenge progress is tracked and rewarded",
+        "Notification system alerts users to active events"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Dashboard/QuestsPanel.tsx",
+          "operation": "create",
+          "description": "Create quests panel component displaying active daily quests and weekly missions with progress bars, completion status, and energy rewards. Show countdown timers for quest reset using shadcn/ui Card and Progress components"
+        },
+        {
+          "path": "frontend/src/components/Events/EventBanner.tsx",
+          "operation": "create",
+          "description": "Create event banner component for displaying Energy Boost Hours, seasonal events, and limited-time challenges with animated badges, countdown timers, and call-to-action buttons"
+        },
+        {
+          "path": "frontend/src/hooks/useQuests.ts",
+          "operation": "create",
+          "description": "Create custom hook to manage quest state, track progress, award rewards upon completion, reset daily quests after 24 hours, reset weekly missions after 7 days, and persist quest data"
+        },
+        {
+          "path": "frontend/src/hooks/useEvents.ts",
+          "operation": "create",
+          "description": "Create custom hook to manage active events, trigger Energy Boost Hour multipliers, handle seasonal event logic, track challenge participation, and store event history"
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Build comprehensive dashboard with all gamification elements",
+      "acceptanceCriteria": [
+        "Animated energy bar shows current energy level",
+        "Streak counter displays consecutive days of activity",
+        "Daily goal tracker shows progress toward goals",
+        "Subject cards are clickable and show mastery level",
+        "Achievement shelf displays earned badges",
+        "Leaderboard can be toggled on/off for privacy",
+        "'Continue Learning' button suggests weak topics"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Dashboard/Dashboard.tsx",
+          "operation": "create",
+          "description": "Create main dashboard component integrating EnergyMeter, StreakCounter, DailyGoalTracker, SubjectGrid, AchievementShelf, QuestsPanel, and ContinueLearningButton. Use background pattern images from frontend/public/assets/generated/dashboard-bg-light.dim_1920x1080.png and frontend/public/assets/generated/dashboard-bg-dark.dim_1920x1080.png based on theme. Layout components in a responsive grid using Tailwind CSS"
+        },
+        {
+          "path": "frontend/src/components/Dashboard/StreakCounter.tsx",
+          "operation": "create",
+          "description": "Create streak counter component displaying consecutive days of activity with flame icon, current streak number, and bonus energy indicators. Animate counter updates with scale effects"
+        },
+        {
+          "path": "frontend/src/components/Dashboard/DailyGoalTracker.tsx",
+          "operation": "create",
+          "description": "Create daily goal tracker component showing progress toward daily learning goals with progress bar, percentage complete, and goal target using shadcn/ui Progress component"
+        },
+        {
+          "path": "frontend/src/components/Dashboard/AchievementShelf.tsx",
+          "operation": "create",
+          "description": "Create achievement shelf component displaying earned badges using generated badge images from frontend/public/assets/generated/badge-*.dim_256x256.png (brain-starter, energy-master, streak-hero, math-wizard, science-champ). Show locked badges as grayscale silhouettes. Include hover tooltips with badge descriptions"
+        },
+        {
+          "path": "frontend/src/components/Dashboard/Leaderboard.tsx",
+          "operation": "create",
+          "description": "Create optional leaderboard component with privacy toggle showing top students by energy points. Include on/off switch using shadcn/ui Switch component and display rankings with anonymized usernames when enabled"
+        },
+        {
+          "path": "frontend/src/components/Dashboard/ContinueLearningButton.tsx",
+          "operation": "create",
+          "description": "Create 'Continue Learning' button component that analyzes weak topics using performance data and suggests next learning activity with AI-powered recommendations. Style as prominent call-to-action using shadcn/ui Button component"
+        },
+        {
+          "path": "frontend/src/hooks/useStreak.ts",
+          "operation": "create",
+          "description": "Create custom hook to track daily activity, calculate consecutive day streaks, award bonus energy for milestones, reset if day is missed, and persist streak data"
+        },
+        {
+          "path": "frontend/src/hooks/useDailyGoals.ts",
+          "operation": "create",
+          "description": "Create custom hook to manage daily learning goals, track progress toward targets (questions answered, time studied, concepts mastered), calculate completion percentage, and reset goals at midnight"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for Dashboard component and configure it as the main authenticated view after onboarding completion"
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Create learning system with multiple question types and adaptive difficulty",
+      "acceptanceCriteria": [
+        "All six question types are implemented and functional",
+        "Quiz timer displays countdown when enabled",
+        "Difficulty adapts based on student performance",
+        "Instant explanation appears after each answer",
+        "Question types are grade-appropriate",
+        "Visual and diagram-based questions display correctly"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Learning/QuizView.tsx",
+          "operation": "create",
+          "description": "Create quiz view component that displays questions with adaptive difficulty, quiz timer, question counter, and navigation controls. Integrate all question type components and show instant explanations after each answer using shadcn/ui Card component for question container"
+        },
+        {
+          "path": "frontend/src/components/Learning/QuestionTypes/MultipleChoice.tsx",
+          "operation": "create",
+          "description": "Create multiple-choice question component displaying question text and 4 answer options as selectable buttons using shadcn/ui RadioGroup component. Highlight selected answer and show correct/incorrect state on submission"
+        },
+        {
+          "path": "frontend/src/components/Learning/QuestionTypes/FillInTheBlank.tsx",
+          "operation": "create",
+          "description": "Create fill-in-the-blank question component with text input fields for missing words using shadcn/ui Input component. Support multiple blanks per question and validate answers on submission"
+        },
+        {
+          "path": "frontend/src/components/Learning/QuestionTypes/MatchTheFollowing.tsx",
+          "operation": "create",
+          "description": "Create match-the-following question component with drag-and-drop functionality to pair items from two columns. Use HTML5 drag-and-drop API with visual feedback for dragging state and drop targets"
+        },
+        {
+          "path": "frontend/src/components/Learning/QuestionTypes/DragAndDrop.tsx",
+          "operation": "create",
+          "description": "Create drag-and-drop activity component for arranging items into correct order or categories. Implement draggable items with drop zones and visual feedback using HTML5 drag-and-drop API"
+        },
+        {
+          "path": "frontend/src/components/Learning/QuestionTypes/ReasoningQuestion.tsx",
+          "operation": "create",
+          "description": "Create reasoning question component for higher grades displaying multi-step logical problems with text area for detailed answers using shadcn/ui Textarea component. Include character counter and formatting hints"
+        },
+        {
+          "path": "frontend/src/components/Learning/QuestionTypes/DiagramBased.tsx",
+          "operation": "create",
+          "description": "Create diagram-based question component displaying images or diagrams with interactive hotspots or labeling tasks. Support click-to-label and drag-label-to-position interactions"
+        },
+        {
+          "path": "frontend/src/components/Learning/QuizTimer.tsx",
+          "operation": "create",
+          "description": "Create quiz timer component displaying countdown in MM:SS format with progress ring visualization. Auto-submit quiz when time expires and show time warnings at 1 minute and 30 seconds remaining"
+        },
+        {
+          "path": "frontend/src/components/Learning/ExplanationPanel.tsx",
+          "operation": "create",
+          "description": "Create explanation panel component displaying instant feedback after answer submission showing correct answer, detailed explanation, and related concept links. Include correct/incorrect indicator with smooth slide-in animation"
+        },
+        {
+          "path": "frontend/src/hooks/useAdaptiveDifficulty.ts",
+          "operation": "create",
+          "description": "Create custom hook to track answer accuracy, calculate performance metrics, adjust question difficulty level based on success rate, and maintain appropriate challenge level for student"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for QuizView component and wire navigation from subject cards and 'Continue Learning' button to quiz sessions"
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Implement positive feedback system with encouraging messages",
+      "acceptanceCriteria": [
+        "Correct answers display encouraging messages",
+        "Incorrect answers show constructive feedback",
+        "Feedback animations are smooth and non-intrusive",
+        "Tone remains friendly and age-appropriate",
+        "Multiple feedback variations prevent repetition"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Learning/FeedbackToast.tsx",
+          "operation": "create",
+          "description": "Create feedback toast component displaying encouraging messages for correct answers ('Boom! That's brain power!', 'Amazing work!', 'You're on fire!') and constructive messages for incorrect answers ('Almost there! Let's review that concept together.', 'Great attempt! Try again.'). Use shadcn/ui Toast component with smooth slide-in animations and auto-dismiss after 3 seconds"
+        },
+        {
+          "path": "frontend/src/utils/feedbackMessages.ts",
+          "operation": "create",
+          "description": "Create utility module with arrays of positive and constructive feedback messages for randomized selection. Include age-appropriate variations for different grade levels and maintain friendly, motivating tone throughout"
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Build mastery tracking system with spaced repetition",
+      "acceptanceCriteria": [
+        "Each concept has a visual strength meter",
+        "Revision reminders appear for unmastered concepts",
+        "Spaced repetition algorithm schedules review sessions",
+        "'Practice Again' button targets weak topics",
+        "Mastery progress is saved and persistent"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Learning/MasteryMeter.tsx",
+          "operation": "create",
+          "description": "Create mastery meter component displaying concept strength levels (Novice, Intermediate, Proficient, Master) with visual progress bar using color gradients from red to green. Show percentage mastery and recent practice history using shadcn/ui Progress component"
+        },
+        {
+          "path": "frontend/src/components/Learning/RevisionReminder.tsx",
+          "operation": "create",
+          "description": "Create revision reminder component displaying concepts due for review based on spaced repetition schedule. Show concept name, last practiced date, and 'Review Now' button using shadcn/ui Card component"
+        },
+        {
+          "path": "frontend/src/components/Learning/PracticeAgainButton.tsx",
+          "operation": "create",
+          "description": "Create 'Practice Again' smart button component that analyzes performance data to identify weakest topics and suggests targeted practice sessions. Display recommended concepts and estimated practice time using shadcn/ui Button component"
+        },
+        {
+          "path": "frontend/src/hooks/useMastery.ts",
+          "operation": "create",
+          "description": "Create custom hook to track concept mastery levels, calculate strength scores based on accuracy and recency, implement spaced repetition algorithm (increase interval on success, reset on failure), schedule revision reminders, and persist mastery data"
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Create study resources with notes, summaries, and flashcards",
+      "acceptanceCriteria": [
+        "Interactive notes are organized by subject and topic",
+        "Summary cards display key concepts clearly",
+        "Flashcards have smooth flip animations",
+        "Video placeholders are marked for future integration",
+        "All content is grade-appropriate"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Resources/StudyNotes.tsx",
+          "operation": "create",
+          "description": "Create interactive study notes component organized by subject and topic with expandable sections, search functionality, and bookmark capabilities. Use shadcn/ui Accordion component for collapsible sections and Card component for note containers"
+        },
+        {
+          "path": "frontend/src/components/Resources/SummaryCards.tsx",
+          "operation": "create",
+          "description": "Create summary cards component displaying key concepts in digestible card format with clear headings, bullet points, and visual hierarchy. Use shadcn/ui Card component with hover effects"
+        },
+        {
+          "path": "frontend/src/components/Resources/Flashcards.tsx",
+          "operation": "create",
+          "description": "Create flashcard component with smooth 3D flip animation showing question on front and answer on back. Include navigation controls for previous/next card and shuffle option. Implement CSS transforms for flip animation"
+        },
+        {
+          "path": "frontend/src/components/Resources/VideoPlaceholder.tsx",
+          "operation": "create",
+          "description": "Create video placeholder component with thumbnail, topic title, duration indicator, and 'Coming Soon' badge. Style as disabled state to indicate future integration using shadcn/ui Card component"
+        },
+        {
+          "path": "frontend/src/components/Resources/ResourcesHub.tsx",
+          "operation": "create",
+          "description": "Create resources hub component integrating StudyNotes, SummaryCards, Flashcards, and VideoPlaceholder with tab navigation to switch between resource types using shadcn/ui Tabs component"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for ResourcesHub component and wire navigation link from dashboard and subject pages to resources hub"
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Implement authentication with Internet Identity and parental controls",
+      "acceptanceCriteria": [
+        "Users can authenticate via Internet Identity",
+        "Parental control portal is accessible with separate login",
+        "Screen-time limits are enforceable",
+        "Break reminders appear at configurable intervals",
+        "Progress reports can be viewed by authorized parents",
+        "All data handling follows child-safe privacy standards"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Auth/LoginPage.tsx",
+          "operation": "create",
+          "description": "Create login page component with Internet Identity integration displaying login button and branding. Use the core-infrastructure component's authentication capabilities. Include 'Parent Login' link for parental control portal"
+        },
+        {
+          "path": "frontend/src/components/Auth/ParentPortal.tsx",
+          "operation": "create",
+          "description": "Create parental control portal component with separate authentication flow showing child's progress reports, screen-time settings, break reminder configuration, and activity logs. Use shadcn/ui Tabs component for portal sections"
+        },
+        {
+          "path": "frontend/src/components/Settings/ScreenTimeSettings.tsx",
+          "operation": "create",
+          "description": "Create screen-time settings component allowing parents to set daily time limits, configure break intervals, and enable/disable study time tracking. Use shadcn/ui Input and Switch components for controls"
+        },
+        {
+          "path": "frontend/src/components/Settings/BreakReminder.tsx",
+          "operation": "create",
+          "description": "Create break reminder component displaying friendly message ('Quick 5-min break? Your brain deserves it!') when break interval is reached. Include snooze and take break options using shadcn/ui Dialog component"
+        },
+        {
+          "path": "frontend/src/components/Reports/ProgressReport.tsx",
+          "operation": "create",
+          "description": "Create progress report component displaying weekly summary of time spent learning, topics studied, quiz scores, energy earned, and achievement milestones. Include export functionality for parents using shadcn/ui Card component for report sections"
+        },
+        {
+          "path": "frontend/src/hooks/useAuth.ts",
+          "operation": "create",
+          "description": "Create custom authentication hook integrating with Internet Identity from core-infrastructure component. Manage authentication state, handle login/logout, and store user session. Verify the component's usage instructions before implementing"
+        },
+        {
+          "path": "frontend/src/hooks/useScreenTime.ts",
+          "operation": "create",
+          "description": "Create custom hook to track active screen time, enforce daily limits, trigger break reminders at configured intervals, and persist time tracking data with timestamps"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add routes for LoginPage and ParentPortal components. Implement authentication guard to redirect unauthenticated users to login page. Configure protected routes for authenticated content"
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Ensure strict child-safety measures and content moderation",
+      "acceptanceCriteria": [
+        "No third-party advertisements appear anywhere",
+        "All external links are blocked or educational-only",
+        "Content is verified to be age-appropriate",
+        "User data is encrypted and protected",
+        "Multiplayer features (if added) have moderation",
+        "Reporting mechanism is visible and functional"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Safety/ContentFilter.tsx",
+          "operation": "create",
+          "description": "Create content filter component that validates and sanitizes all user-generated content, blocks external URLs, and ensures educational-only links are permitted. Implement client-side validation rules"
+        },
+        {
+          "path": "frontend/src/components/Safety/ReportButton.tsx",
+          "operation": "create",
+          "description": "Create reporting mechanism button component visible on all content pages allowing users to report concerns. Include report form with categories and description field using shadcn/ui Dialog and Textarea components"
+        },
+        {
+          "path": "frontend/src/utils/contentSafety.ts",
+          "operation": "create",
+          "description": "Create content safety utility module with functions to validate content for age-appropriateness, sanitize HTML/text input, block external links except whitelisted educational domains, and flag inappropriate content for review"
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Add comprehensive accessibility features",
+      "acceptanceCriteria": [
+        "Text-to-speech works for all text content",
+        "Font size can be adjusted in settings",
+        "Dyslexia-friendly font option is available",
+        "Dark and light modes switch smoothly",
+        "Offline mode caches essential content",
+        "Low-data mode reduces resource loading"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Accessibility/TextToSpeech.tsx",
+          "operation": "create",
+          "description": "Create text-to-speech component using Web Speech API to read aloud questions, content, and interface elements. Include play/pause/stop controls and speech rate adjustment using shadcn/ui Button components"
+        },
+        {
+          "path": "frontend/src/components/Settings/AccessibilitySettings.tsx",
+          "operation": "create",
+          "description": "Create accessibility settings page with font size slider, dyslexia-friendly font toggle, dark/light mode switch, offline mode toggle, and low-data mode toggle. Use shadcn/ui Slider, Switch, and RadioGroup components"
+        },
+        {
+          "path": "frontend/src/hooks/useTheme.ts",
+          "operation": "create",
+          "description": "Create custom theme hook to manage dark/light mode state, apply theme classes to root element, and persist theme preference in local storage. Support smooth transitions between themes"
+        },
+        {
+          "path": "frontend/src/hooks/useOfflineMode.ts",
+          "operation": "create",
+          "description": "Create custom offline mode hook to cache essential content using browser storage APIs, detect network connectivity, and enable offline practice sessions with locally stored questions"
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add CSS custom properties for font size scaling (--font-scale), dyslexia-friendly font family (OpenDyslexic or similar), dark mode color scheme variables, and smooth theme transition animations. Include media queries for system preference detection"
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Create smooth pop-up notification system for achievements",
+      "acceptanceCriteria": [
+        "All six pop-up types are implemented",
+        "Animations are smooth and professional",
+        "Pop-ups don't block critical UI elements",
+        "Users can dismiss pop-ups easily",
+        "Pop-ups queue properly when multiple events occur"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Notifications/NotificationSystem.tsx",
+          "operation": "create",
+          "description": "Create notification system component managing pop-up queue for Level Up, Concept Mastered, Energy Full, Streak Milestone, Achievement Unlocked, and Study Reminder events. Position notifications in corner with slide-in animations and auto-dismiss after 5 seconds using shadcn/ui Toast component"
+        },
+        {
+          "path": "frontend/src/components/Notifications/LevelUpNotification.tsx",
+          "operation": "create",
+          "description": "Create Level Up notification component displaying new level number with celebration animation and confetti effect. Include sound effect trigger and dismiss button"
+        },
+        {
+          "path": "frontend/src/components/Notifications/ConceptMasteredNotification.tsx",
+          "operation": "create",
+          "description": "Create Concept Mastered notification component showing mastered concept name with checkmark animation and energy reward indicator"
+        },
+        {
+          "path": "frontend/src/components/Notifications/EnergyFullNotification.tsx",
+          "operation": "create",
+          "description": "Create Energy Full notification component alerting user when energy meter reaches maximum capacity with glowing energy icon animation"
+        },
+        {
+          "path": "frontend/src/components/Notifications/StreakMilestoneNotification.tsx",
+          "operation": "create",
+          "description": "Create Streak Milestone notification component displaying achieved streak number (7, 30, 100 days) with flame animation and bonus energy award"
+        },
+        {
+          "path": "frontend/src/components/Notifications/AchievementUnlockedNotification.tsx",
+          "operation": "create",
+          "description": "Create Achievement Unlocked notification component displaying badge icon from frontend/public/assets/generated/badge-*.dim_256x256.png with badge name and unlock animation using shine effect"
+        },
+        {
+          "path": "frontend/src/components/Notifications/StudyReminderNotification.tsx",
+          "operation": "create",
+          "description": "Create Study Reminder notification component showing personalized reminder message with suggested topic and 'Start Learning' button"
+        },
+        {
+          "path": "frontend/src/hooks/useNotifications.ts",
+          "operation": "create",
+          "description": "Create custom notifications hook to manage notification queue, trigger appropriate notification type based on event, handle auto-dismiss timers, and prevent notification spam with rate limiting"
+        }
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "summary": "Add supplementary learning tools and planners",
+      "acceptanceCriteria": [
+        "Motivational quotes rotate on dashboard",
+        "Background music can be toggled and volume adjusted",
+        "Sound effects are customizable in settings",
+        "Focus mode hides non-essential UI elements",
+        "Exam countdown shows days remaining",
+        "Timetable planner allows schedule entry",
+        "Homework reminders send notifications",
+        "Goal-setting interface saves target scores"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Dashboard/MotivationalQuote.tsx",
+          "operation": "create",
+          "description": "Create motivational quote component displaying rotating inspirational quotes with smooth fade transitions. Include quote text, author, and refresh button using shadcn/ui Card component"
+        },
+        {
+          "path": "frontend/src/components/Settings/AudioSettings.tsx",
+          "operation": "create",
+          "description": "Create audio settings component with background music toggle, volume slider, sound effects toggle, and individual effect volume controls. Use shadcn/ui Switch and Slider components"
+        },
+        {
+          "path": "frontend/src/components/Learning/FocusMode.tsx",
+          "operation": "create",
+          "description": "Create focus mode component that enters distraction-free view hiding navigation, sidebar, and non-essential UI elements. Show only current question and essential controls with minimal styling. Include exit focus mode button"
+        },
+        {
+          "path": "frontend/src/components/Tools/ExamCountdown.tsx",
+          "operation": "create",
+          "description": "Create exam countdown tracker component displaying days remaining until user-set exam date with progress visualization. Allow adding multiple exams with names and dates using shadcn/ui Card and DatePicker components"
+        },
+        {
+          "path": "frontend/src/components/Tools/TimetablePlanner.tsx",
+          "operation": "create",
+          "description": "Create timetable planner component with weekly schedule grid allowing users to add study sessions, classes, and activities. Include time slots, subject selection, and color coding using shadcn/ui Table component"
+        },
+        {
+          "path": "frontend/src/components/Tools/HomeworkReminder.tsx",
+          "operation": "create",
+          "description": "Create homework reminder component displaying list of assignments with due dates, completion status, and notification settings. Allow adding/editing homework entries using shadcn/ui Card and Checkbox components"
+        },
+        {
+          "path": "frontend/src/components/Tools/GoalSetting.tsx",
+          "operation": "create",
+          "description": "Create goal-setting component allowing users to set target scores for subjects, track progress toward goals, and celebrate goal achievement. Include goal creation form and progress visualization using shadcn/ui Input and Progress components"
+        },
+        {
+          "path": "frontend/src/components/Tools/ToolsHub.tsx",
+          "operation": "create",
+          "description": "Create tools hub component integrating ExamCountdown, TimetablePlanner, HomeworkReminder, and GoalSetting with tab navigation using shadcn/ui Tabs component"
+        },
+        {
+          "path": "frontend/src/hooks/useAudio.ts",
+          "operation": "create",
+          "description": "Create custom audio hook to manage background music playback, control volume levels, play sound effects for events, and persist audio preferences. Support multiple audio tracks and effect categories"
+        },
+        {
+          "path": "frontend/src/utils/motivationalQuotes.ts",
+          "operation": "create",
+          "description": "Create motivational quotes utility module with curated array of age-appropriate inspirational quotes about learning, perseverance, and growth mindset. Include randomization function"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for ToolsHub component and wire navigation link from dashboard to tools section"
+        }
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "summary": "Design modern UI with brain and lightning theme",
+      "acceptanceCriteria": [
+        "Visual design incorporates brain and lightning motifs",
+        "Color palette is vibrant but maintains readability",
+        "All animations run at 60fps on target devices",
+        "Typography is clear and age-appropriate",
+        "Navigation is intuitive for young users",
+        "UI adapts properly to mobile and desktop screens"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Layout/AppLayout.tsx",
+          "operation": "create",
+          "description": "Create main app layout component with responsive navigation sidebar, top header with user info and energy meter, and content area. Include brain and lightning theme elements in header branding using generated images and Tailwind CSS utilities for responsive breakpoints"
+        },
+        {
+          "path": "frontend/src/components/Navigation/Sidebar.tsx",
+          "operation": "create",
+          "description": "Create sidebar navigation component with links to Dashboard, Subjects, Resources, Shop, Tools, Settings, and Parent Portal. Include icons and active state highlighting. Collapse to icon-only on mobile using Tailwind responsive classes"
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define custom color palette with vibrant energetic colors (electric blue accents, bright yellow highlights, purple gradients) balanced with neutral backgrounds for readability. Add brain and lightning theme utility classes. Configure smooth 60fps animations using CSS transforms and GPU-accelerated properties. Set up responsive typography scale using clamp() for fluid sizing"
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with custom colors for brain and lightning theme (primary: electric blue, secondary: energetic yellow, accent: purple gradient), custom animation keyframes for smooth transitions, spacing scale optimized for educational interface, and responsive breakpoints for mobile-first design"
+        }
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "summary": "Implement weekly performance analytics with insights",
+      "acceptanceCriteria": [
+        "Weekly analytics page shows all required metrics",
+        "Accuracy percentage is calculated correctly",
+        "Time tracking is accurate and persistent",
+        "Improvement graphs display trend data",
+        "Algorithm identifies weakest topics",
+        "AI suggestions are contextually relevant"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Analytics/AnalyticsDashboard.tsx",
+          "operation": "create",
+          "description": "Create analytics dashboard component displaying weekly performance summary with accuracy percentage, total time spent learning, improvement trend graphs, weak topic detection results, and AI study suggestions like 'Revise Algebra today'. Use shadcn/ui Card component for metric cards and integrate chart library for graphs"
+        },
+        {
+          "path": "frontend/src/components/Analytics/AccuracyChart.tsx",
+          "operation": "create",
+          "description": "Create accuracy chart component displaying line graph of quiz accuracy percentage over time with week-over-week comparison and trend indicators"
+        },
+        {
+          "path": "frontend/src/components/Analytics/TimeSpentChart.tsx",
+          "operation": "create",
+          "description": "Create time spent chart component showing bar graph of daily study time throughout the week with subject breakdown and total hours summary"
+        },
+        {
+          "path": "frontend/src/components/Analytics/ImprovementGraph.tsx",
+          "operation": "create",
+          "description": "Create improvement graph component displaying multi-line chart tracking mastery level improvements across subjects over time with clear upward trend visualization"
+        },
+        {
+          "path": "frontend/src/components/Analytics/WeakTopicsPanel.tsx",
+          "operation": "create",
+          "description": "Create weak topics panel component listing concepts with lowest mastery scores, accuracy rates below threshold, and recommended practice time. Include 'Practice Now' buttons for each topic using shadcn/ui Card component"
+        },
+        {
+          "path": "frontend/src/components/Analytics/AISuggestions.tsx",
+          "operation": "create",
+          "description": "Create AI suggestions component displaying personalized study recommendations based on performance analysis (e.g., 'Revise Algebra today', 'Focus on Biology diagrams'). Show suggestion rationale and estimated benefit"
+        },
+        {
+          "path": "frontend/src/hooks/useAnalytics.ts",
+          "operation": "create",
+          "description": "Create custom analytics hook to aggregate performance data, calculate accuracy percentages, track time spent by subject, identify weak topics using threshold algorithms, generate improvement trends, and produce AI study suggestions based on performance patterns"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for AnalyticsDashboard component and wire navigation link from dashboard and user menu to analytics page"
+        }
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "summary": "Create achievement badge system with milestone unlocks",
+      "acceptanceCriteria": [
+        "All specified badges are created with unique designs",
+        "Badge unlock conditions are defined and functional",
+        "Achievement shelf displays earned badges",
+        "Unlock animations celebrate achievement",
+        "Badge progress is tracked persistently"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Achievements/BadgeDisplay.tsx",
+          "operation": "create",
+          "description": "Create badge display component showing individual achievement badge using generated images from frontend/public/assets/generated/badge-*.dim_256x256.png (brain-starter, energy-master, streak-hero, math-wizard, science-champ). Display badge in full color when earned or grayscale when locked. Include hover tooltip with badge description and unlock criteria using shadcn/ui Tooltip component"
+        },
+        {
+          "path": "frontend/src/components/Achievements/BadgeUnlockAnimation.tsx",
+          "operation": "create",
+          "description": "Create badge unlock animation component displaying celebration when badge is earned with badge image zoom-in effect, confetti particles, shine animation, and congratulatory message. Auto-dismiss after 3 seconds with manual dismiss option"
+        },
+        {
+          "path": "frontend/src/hooks/useAchievements.ts",
+          "operation": "create",
+          "description": "Create custom achievements hook to track achievement progress, check unlock conditions (Brain Starter: complete onboarding, Energy Master: earn 1000 energy, 7-Day Streak Hero: maintain 7-day streak, Math Wizard: master 10 math concepts, Science Champ: master 10 science concepts), trigger unlock animations, and persist achievement data"
+        }
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "summary": "Add Olympiad preparation option with diagnostic quiz",
+      "acceptanceCriteria": [
+        "Olympiad option is visible at top of dashboard",
+        "Information section explains Olympiad preparation clearly",
+        "5-question diagnostic quiz is available",
+        "Quiz assesses student's current level",
+        "Results provide guidance on Olympiad readiness"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Olympiad/OlympiadBanner.tsx",
+          "operation": "create",
+          "description": "Create Olympiad preparation banner component prominently displayed at top of dashboard using generated banner image from frontend/public/assets/generated/olympiad-banner.dim_800x200.png. Include 'Want to prepare for Olympiads?' headline and 'Learn More' button using shadcn/ui Card component"
+        },
+        {
+          "path": "frontend/src/components/Olympiad/OlympiadInfo.tsx",
+          "operation": "create",
+          "description": "Create Olympiad information component explaining benefits of Olympiad preparation, competition formats, subjects covered, and success stories. Include 'Take Diagnostic Quiz' call-to-action button using shadcn/ui Card component"
+        },
+        {
+          "path": "frontend/src/components/Olympiad/DiagnosticQuiz.tsx",
+          "operation": "create",
+          "description": "Create 5-question diagnostic quiz component assessing student's readiness for Olympiad preparation with challenging questions covering reasoning, logic, and subject knowledge. Display results with readiness score and personalized recommendations"
+        },
+        {
+          "path": "frontend/src/components/Olympiad/OlympiadHub.tsx",
+          "operation": "create",
+          "description": "Create Olympiad hub component integrating OlympiadInfo and DiagnosticQuiz with progress tracking, practice materials, and preparation resources"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for OlympiadHub component and wire navigation from OlympiadBanner on dashboard to Olympiad hub page"
+        }
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "summary": "Implement five unlockable mini-games with distinct mechanics",
+      "acceptanceCriteria": [
+        "All five mini-games are fully playable",
+        "Each game has distinct mechanics and rules",
+        "Mini-games award energy and achievements",
+        "Games are locked until purchased with energy",
+        "Scores and progress are tracked for each game"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/MiniGames/WordRush.tsx",
+          "operation": "create",
+          "description": "Create Word Rush mini-game (2D game) component with word/vocabulary challenges where players form words from letter tiles within time limit. Display score, timer, and word list using generated icon from frontend/public/assets/generated/minigame-word-rush.dim_256x256.png. Award energy based on words formed and difficulty"
+        },
+        {
+          "path": "frontend/src/components/MiniGames/MathBlaster.tsx",
+          "operation": "create",
+          "description": "Create Math Blaster mini-game (2D game) component with fast-paced math challenges where players solve arithmetic problems before timer expires. Display falling number blocks that must be matched with correct answers using generated icon from frontend/public/assets/generated/minigame-math-blaster.dim_256x256.png. Award energy for speed and accuracy"
+        },
+        {
+          "path": "frontend/src/components/MiniGames/ScienceSnap.tsx",
+          "operation": "create",
+          "description": "Create Science Snap mini-game (2D game) component with science quiz format where players identify scientific concepts, match terms to definitions, and answer rapid-fire questions using generated icon from frontend/public/assets/generated/minigame-science-snap.dim_256x256.png. Award energy for correct answers and combo streaks"
+        },
+        {
+          "path": "frontend/src/components/MiniGames/MemoryGrid.tsx",
+          "operation": "create",
+          "description": "Create Memory Grid mini-game (2D game) component with memory matching game where players flip cards to find matching pairs within limited moves using generated icon from frontend/public/assets/generated/minigame-memory-grid.dim_256x256.png. Display grid of cards with flip animations. Award energy based on moves and time taken"
+        },
+        {
+          "path": "frontend/src/components/MiniGames/QuizBattle.tsx",
+          "operation": "create",
+          "description": "Create Quiz Battle Mode mini-game (2D game) component with competitive quiz format featuring head-to-head quiz racing against timer and difficulty progression using generated icon from frontend/public/assets/generated/minigame-quiz-battle.dim_256x256.png. Display leaderboard and battle statistics. Award energy for wins and high scores"
+        },
+        {
+          "path": "frontend/src/components/MiniGames/MiniGamesHub.tsx",
+          "operation": "create",
+          "description": "Create mini-games hub component displaying grid of all five mini-games with lock states (locked/unlocked), game icons from frontend/public/assets/generated/minigame-*.dim_256x256.png, descriptions, and play buttons. Show energy cost for locked games and high scores for unlocked games using shadcn/ui Card component"
+        },
+        {
+          "path": "frontend/src/hooks/useMiniGames.ts",
+          "operation": "create",
+          "description": "Create custom mini-games hook to track unlocked games, manage game state, record scores and progress, award energy and achievements for milestones, and persist game data"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add routes for MiniGamesHub and individual mini-game components. Wire navigation from dashboard and energy shop to mini-games hub"
+        }
+      ]
+    }
+  ]
+}

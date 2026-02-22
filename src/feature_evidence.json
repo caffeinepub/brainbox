@@ -1,0 +1,307 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-animated-welcome-screen-displaying-welcome-to-brainbox-with-tagline-charge-your-brain-unlock-your-game-and-a-bold-let-s-start-button-with-smooth-transitions",
+      "featureTitle": "Create animated welcome screen displaying 'Welcome to BrainBox! 🧠⚡' with tagline 'Charge Your Brain. Unlock Your Game.' and a bold 'Let's Start' button with smooth transitions",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-onboarding-flow-asking-users-to-select-grade-grade-1-12-educational-system-cbse-icse-state-board-ib-igcse-other-and-for-grades-11-12-ask-stream-selection-science-commerce-humanities",
+      "featureTitle": "Implement onboarding flow asking users to select grade (Grade 1-12), educational system (CBSE, ICSE, State Board, IB, IGCSE, Other), and for Grades 11-12 ask stream selection (Science, Commerce, Humanities)",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/hooks/useUserProfile.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-automatically-generate-appropriate-subject-list-based-on-selected-grade-and-stream-grades-1-5-english-mathematics-evs-general-knowledge-computer-basics-grades-6-8-english-mathematics-science-social-studies-computer-science-grades-9-10-english-mathematics-physics-chemistry-biology-social-science-computer-science-grades-11-12-science-physics-chemistry-biology-mathematics-computer-science-grades-11-12-commerce-accounts-business-studies-economics-mathematics-grades-11-12-humanities-history-political-science-geography-etc",
+      "featureTitle": "Automatically generate appropriate subject list based on selected grade and stream: Grades 1-5 (English, Mathematics, EVS, General Knowledge, Computer Basics), Grades 6-8 (English, Mathematics, Science, Social Studies, Computer Science), Grades 9-10 (English, Mathematics, Physics, Chemistry, Biology, Social Science, Computer Science), Grades 11-12 Science (Physics, Chemistry, Biology, Mathematics, Computer Science), Grades 11-12 Commerce (Accounts, Business Studies, Economics, Mathematics), Grades 11-12 Humanities (History, Political Science, Geography, etc.)",
+      "files": [
+        "frontend/src/components/Dashboard/SubjectCard.tsx",
+        "frontend/src/components/Dashboard/SubjectGrid.tsx",
+        "frontend/src/utils/subjectGenerator.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-energy-meter-gamification-system-where-students-earn-5-energy-per-correct-answer-20-energy-per-completed-quiz-set-10-energy-for-every-15-minutes-of-focused-study-time-tracked-by-in-app-timer-bonus-energy-for-daily-streaks-consistency-rewards-and-milestone-achievements",
+      "featureTitle": "Implement Energy Meter gamification system where students earn +5 energy per correct answer, +20 energy per completed quiz set, +10 energy for every 15 minutes of focused study time tracked by in-app timer, bonus energy for daily streaks, consistency rewards, and milestone achievements",
+      "files": [
+        "frontend/src/components/Dashboard/EnergyMeter.tsx",
+        "frontend/src/hooks/useEnergy.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-energy-spending-system-where-students-can-unlock-mini-games-word-rush-math-blaster-science-snap-memory-grid-quiz-battle-mode-customize-avatars-with-outfits-themes-accessories-unlock-new-themes-and-sound-packs-access-challenge-tournaments-and-unlock-advanced-mastery-levels",
+      "featureTitle": "Create energy spending system where students can unlock mini-games (Word Rush, Math Blaster, Science Snap, Memory Grid, Quiz Battle Mode), customize avatars with outfits/themes/accessories, unlock new themes and sound packs, access challenge tournaments, and unlock advanced mastery levels",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-daily-quests-weekly-missions-energy-boost-hours-surprise-time-limited-events-seasonal-events-and-limited-time-academic-challenges-that-award-bonus-energy",
+      "featureTitle": "Implement daily quests, weekly missions, Energy Boost Hours (surprise time-limited events), seasonal events, and limited-time academic challenges that award bonus energy",
+      "files": [
+        "frontend/src/components/Dashboard/QuestsPanel.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-dashboard-displaying-animated-energy-bar-streak-counter-daily-goal-progress-tracker-subject-cards-with-progress-indicators-achievement-shelf-optional-privacy-safe-leaderboard-performance-insights-and-continue-learning-button-with-ai-powered-weak-topic-suggestions",
+      "featureTitle": "Build dashboard displaying animated energy bar, streak counter, daily goal progress tracker, subject cards with progress indicators, achievement shelf, optional privacy-safe leaderboard, performance insights, and 'Continue Learning' button with AI-powered weak topic suggestions",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Dashboard/AchievementShelf.tsx",
+        "frontend/src/components/Dashboard/ContinueLearningButton.tsx",
+        "frontend/src/components/Dashboard/DailyGoalTracker.tsx",
+        "frontend/src/components/Dashboard/StreakCounter.tsx",
+        "frontend/src/hooks/useStreak.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-learning-system-with-multiple-question-types-multiple-choice-fill-in-the-blanks-match-the-following-drag-and-drop-activities-reasoning-questions-for-higher-grades-diagram-based-and-visual-questions-with-timed-quizzes-adaptive-difficulty-levels-and-instant-explanations-after-every-answer",
+      "featureTitle": "Create learning system with multiple question types: multiple-choice, fill-in-the-blanks, match-the-following, drag-and-drop activities, reasoning questions for higher grades, diagram-based and visual questions, with timed quizzes, adaptive difficulty levels, and instant explanations after every answer",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-study-resources-including-interactive-study-notes-quick-summary-cards-flashcards-with-flip-animations-and-placeholder-for-short-concept-videos-that-are-age-appropriate-and-educational-only",
+      "featureTitle": "Create study resources including interactive study notes, quick summary cards, flashcards with flip animations, and placeholder for short concept videos that are age-appropriate and educational-only",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-secure-user-authentication-system-with-internet-identity-integration-optional-parental-control-access-portal-screen-time-limit-settings-break-reminders-with-messages-like-quick-5-min-break-your-brain-deserves-it-and-progress-report-generation-for-parents",
+      "featureTitle": "Implement secure user authentication system with Internet Identity integration, optional parental control access portal, screen-time limit settings, break reminders with messages like 'Quick 5-min break? Your brain deserves it!', and progress report generation for parents",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-accessibility-features-text-to-speech-for-questions-and-content-adjustable-font-sizes-dyslexia-friendly-font-option-dark-and-light-mode-toggle-offline-practice-mode-for-limited-internet-and-low-data-mode",
+      "featureTitle": "Add accessibility features: text-to-speech for questions and content, adjustable font sizes, dyslexia-friendly font option, dark and light mode toggle, offline practice mode for limited internet, and low-data mode",
+      "files": [
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-supplementary-learning-tools-motivational-quotes-display-calming-background-music-options-with-on-off-toggle-customizable-sound-effects-focus-mode-distraction-free-ui-exam-countdown-tracker-timetable-planner-homework-reminder-section-and-goal-setting-feature-for-target-scores",
+      "featureTitle": "Add supplementary learning tools: motivational quotes display, calming background music options with on/off toggle, customizable sound effects, focus mode (distraction-free UI), exam countdown tracker, timetable planner, homework reminder section, and goal-setting feature for target scores",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Dashboard/MotivationalQuote.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-modern-ui-with-brain-and-lightning-theme-colorful-but-not-distracting-palette-avoid-overuse-of-blue-and-purple-unless-intentional-smooth-animations-clean-typography-intuitive-navigation-and-fully-responsive-design-for-all-devices",
+      "featureTitle": "Design modern UI with brain and lightning theme, colorful but not distracting palette (avoid overuse of blue and purple unless intentional), smooth animations, clean typography, intuitive navigation, and fully responsive design for all devices",
+      "files": [
+        "frontend/src/components/Layout/AppLayout.tsx",
+        "frontend/src/components/Navigation/Sidebar.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-18"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-weekly-performance-analytics-displaying-accuracy-percentage-time-spent-learning-improvement-graphs-over-time-weak-topic-detection-algorithm-and-ai-study-suggestions-like-revise-algebra-today",
+      "featureTitle": "Implement weekly performance analytics displaying accuracy percentage, time spent learning, improvement graphs over time, weak-topic detection algorithm, and AI study suggestions like 'Revise Algebra today'",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-19"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-want-to-prepare-for-olympiads-option-prominently-at-the-top-of-the-dashboard-with-information-section-explaining-olympiad-preparation-benefits-and-a-5-question-diagnostic-quiz-to-assess-readiness",
+      "featureTitle": "Add 'Want to prepare for Olympiads?' option prominently at the top of the dashboard with information section explaining Olympiad preparation benefits and a 5-question diagnostic quiz to assess readiness",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Olympiad/OlympiadBanner.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-22"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-five-unlockable-mini-games-word-rush-word-vocabulary-game-math-blaster-fast-paced-math-challenges-science-snap-science-quiz-game-memory-grid-memory-matching-game-and-quiz-battle-mode-competitive-quiz-format",
+      "featureTitle": "Implement five unlockable mini-games: Word Rush (word/vocabulary game), Math Blaster (fast-paced math challenges), Science Snap (science quiz game), Memory Grid (memory matching game), and Quiz Battle Mode (competitive quiz format)",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-23"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
